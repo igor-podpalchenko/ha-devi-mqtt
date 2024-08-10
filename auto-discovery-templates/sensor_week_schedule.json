@@ -1,0 +1,18 @@
+{
+  "topic": "homeassistant/sensor/${deviceSN}_sensor_week_schedule/config",
+  "template": {
+    "state_topic": "devi/state/${deviceSN}/sensor_week_schedule",
+    "device": {
+      "identifiers": [
+        "${deviceSN}"
+      ],
+      "manufacturer": "Danfoss",
+      "name": "DeviReg ${deviceSN}",
+      "model": "DeviReg Smart Thermostat"
+    },
+    "unique_id": "${deviceSN}_sensor_week_schedule",
+    "object_id": "devi_sensor_week_schedule_${deviceNumber}",
+    "name": "Week schedule JSON",
+    "entity_category": "diagnostic"
+  }
+}

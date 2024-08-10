@@ -1,0 +1,17 @@
+{
+    "topic": "homeassistant/sensor/${deviceSN}_on_time_7_days/config",
+    "template": {
+        "state_topic": "devi/state/${deviceSN}/on_time_7_days",
+        "device": {
+            "identifiers": [
+                "${deviceSN}"
+            ],
+            "manufacturer": "Danfoss",
+            "name": "DeviReg ${deviceSN}",
+            "model": "DeviReg Smart Thermostat"
+        },
+        "unique_id": "${deviceSN}_on_time_7_days",
+        "object_id": "devi_on_time_7_days_${deviceNumber}",
+        "name": "On time 7 days"
+    }
+}

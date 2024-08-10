@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="danfoss"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+	<thing-type id="devismart">
+		<label>DeviReg Smart</label>
+		<description>DeviReg Smart floor thermostat</description>
+
+		<channels>
+			<channel id="temperature_floor" typeId="temperature_floor"/>
+			<channel typeId="temperature_room" id="temperature_room"></channel>
+			<channel typeId="setpoint_comfort" id="setpoint_comfort"></channel>
+			<channel typeId="setpoint_economy" id="setpoint_economy"></channel>
+			<channel typeId="setpoint_manual" id="setpoint_manual"></channel>
+			<channel typeId="setpoint_away" id="setpoint_away"></channel>
+			<channel typeId="setpoint_antifreeze" id="setpoint_antifreeze"></channel>
+			<channel typeId="setpoint_min_floor" id="setpoint_min_floor"></channel>
+			<channel typeId="setpoint_min_floor_enable" id="setpoint_min_floor_enable"></channel>
+			<channel typeId="setpoint_max_floor" id="setpoint_max_floor"></channel>
+			<channel typeId="setpoint_warning" id="setpoint_warning"/>
+			<channel typeId="control_mode" id="control_mode"/>
+			<channel typeId="control_state" id="control_state"/>
+			<channel typeId="window_detection" id="window_detection"/>
+			<channel typeId="window_open" id="window_open"/>
+			<channel typeId="forecast" id="forecast"/>
+			<channel typeId="screen_lock" id="screen_lock"/>
+			<channel typeId="brightness" id="brightness"/>
+			<channel typeId="heating_state" id="heating_state"/>
+			<channel typeId="on_time_7_days" id="on_time_7_days"/>
+			<channel typeId="on_time_30_days" id="on_time_30_days"/>
+			<channel typeId="on_time_total" id="on_time_total"/>
+			<channel typeId="sensor_disconnected" id="sensor_disconnected"/>
+			<channel typeId="sensor_shorted" id="sensor_shorted"/>
+			<channel typeId="overheat" id="overheat"/>
+			<channel typeId="unrecoverable" id="unrecoverable"/>
+		</channels>
+
+		<config-description>
+			<parameter name="peerId" type="text" readOnly="true" pattern="[0-9A-Fa-f]{64}" required="true">
+				<label>Peer ID</label>
+				<description>Thermostat peer ID (AKA public key)</description>
+				<verify>true</verify>
+			</parameter>
+		</config-description>
+
+	</thing-type>
+	<bridge-type id="icon_wifi">
+		<label>Icon controller</label>
+		<description>WiFi app module on an Icon master controller</description>
+		<channels>
+			<channel typeId="setpoint_away" id="setpoint_away"></channel>
+			<channel typeId="setpoint_antifreeze" id="setpoint_antifreeze"></channel>
+		</channels>
+		<config-description>
+			<parameter name="peerId" type="text" pattern="[0-9A-Fa-f]{64}" required="true">
+				<label>Peer ID</label>
+				<description>Peer ID (AKA public key)</description>
+				<verify>true</verify>
+			</parameter>
+		</config-description>
+	</bridge-type>
+	<thing-type id="icon_room">
+		<supported-bridge-type-refs>
+			<bridge-type-ref id="icon_wifi"/>
+		</supported-bridge-type-refs>
+		<label>Icon room</label>
+		<description>Icon room thermostat</description>
+		<channels>
+			<channel typeId="temperature_floor" id="temperature_floor"/>
+			<channel typeId="temperature_room" id="temperature_room"></channel>
+			<channel typeId="setpoint_comfort" id="setpoint_comfort"></channel>
+			<channel typeId="setpoint_economy" id="setpoint_economy"></channel>
+			<channel typeId="setpoint_asleep" id="setpoint_asleep"></channel>
+			<channel typeId="setpoint_min_floor" id="setpoint_min_floor"></channel>
+			<channel typeId="setpoint_max_floor" id="setpoint_max_floor"></channel>
+			<channel typeId="manual_mode" id="manual_mode"></channel>
+		</channels>
+		<config-description>
+			<parameter name="roomNumber" type="integer" required="true" min="0" max="44">
+				<label>Room number</label>
+				<description>Room number in the system</description>
+			</parameter>
+		</config-description>
+	</thing-type>
+	<channel-type id="temperature_floor">
+		<item-type>Number:Temperature</item-type>
+		<label>Floor temperature</label>
+		<description>Current temperature from floor sensor</description>
+		<state readOnly="true" pattern="%.2f %unit%"/>
+	</channel-type>
+	<channel-type id="temperature_room">
+		<item-type>Number:Temperature</item-type>
+		<label>Room temperature</label>
+		<description>Current temperature from room sensor</description>
+		<state readOnly="true" pattern="%.2f %unit%"/>
+	</channel-type>
+	<channel-type id="setpoint_comfort">
+		<item-type>Number:Temperature</item-type>
+		<label>At Home temperature</label>
+		<description>Temperature setting when you are at home (according to schedule)</description>
+		<state pattern="%.1f %unit%" min="5" max="28" step="0.5"/>
+	</channel-type>
+	<channel-type id="setpoint_economy">
+		<item-type>Number:Temperature</item-type>
+		<label>Away temperature</label>
+		<description>Temperature setting when you are away (according to schedule)</description>
+		<state pattern="%.1f %unit%" min="5" max="28" step="0.5"/>
+	</channel-type>
+	<channel-type id="setpoint_asleep">
+		<item-type>Number:Temperature</item-type>
+		<label>Night temperature</label>
+		<description>Temperature setting when you are asleep (according to schedule)</description>
+		<state pattern="%.1f %unit%" min="5" max="28" step="0.5"/>
+	</channel-type>
+	<channel-type id="setpoint_manual">
+		<item-type>Number:Temperature</item-type>
+		<label>Manual temperature</label>
+		<description>Temperature setting for manual mode</description>
+		<state pattern="%.1f %unit%" min="5" max="28" step="0.5"/>
+	</channel-type>
+	<channel-type id="setpoint_away">
+		<item-type>Number:Temperature</item-type>
+		<label>Vacation temperature</label>
+		<description>Temperature setting for vacation mode</description>
+		<state pattern="%.1f %unit%" min="10" max="28" step="0.5"/>
+	</channel-type>
+	<channel-type id="setpoint_antifreeze">
+		<item-type>Number:Temperature</item-type>
+		<label>Frost protection temperature</label>
+		<description>Temperature setting for frost protection mode</description>
+		<state pattern="%.1f %unit%" min="5" max="9" step="0.5"/>
+	</channel-type>
+	<channel-type id="setpoint_min_floor" advanced="true">
+		<item-type>Number:Temperature</item-type>
+		<label>Minimum floor temperature</label>
+		<description>Minimum allowed floor temperature</description>
+		<state pattern="%.1f %unit%" min="7" max="28" step="0.5"/>
+	</channel-type>
+	<channel-type id="setpoint_min_floor_enable" advanced="true">
+		<item-type>Switch</item-type>
+		<label>Enable minimum floor temperature</label>
+		<description>Keep floor temperature above the minimum</description>
+	</channel-type>
+	<channel-type id="setpoint_max_floor" advanced="true">
+		<item-type>Number:Temperature</item-type>
+		<label>Maximum floor temperature</label>
+		<description>Maximum allowed floor temperature</description>
+		<state pattern="%.1f %unit%" min="7" max="33" step="0.5"/>
+	</channel-type>
+	<channel-type id="setpoint_warning" advanced="true">
+		<item-type>Number:Temperature</item-type>
+		<label>Warning temperature</label>
+		<description>Send warning notification to your phones if the temperature drops below this value</description>
+		<state pattern="%.1f %unit%" min="0" max="10" step="0.5"/>
+	</channel-type>
+	<channel-type id="control_mode">
+		<item-type>String</item-type>
+		<label>Mode</label>
+		<description>Control mode switch</description>
+		<state>
+			<options>
+				<option value="MANUAL">Manual</option>
+				<option value="OVERRIDE">At home override</option>
+				<option value="SCHEDULE">Schedule</option>
+				<option value="VACATION">Vacation</option>
+				<option value="PAUSE">Frost protection</option>
+				<option value="OFF">Off</option>
+			</options>
+		</state>
+	</channel-type>
+	<channel-type id="control_state">
+		<item-type>String</item-type>
+		<label>State</label>
+		<description>Current control state</description>
+		<state readOnly="true">
+			<options>
+				<option value="CONFIGURING">Not configured</option>
+				<option value="MANUAL">Manual</option>
+				<option value="HOME">At home</option>
+				<option value="AWAY">Away</option>
+				<option value="VACATION">Vacation</option>
+				<option value="FATAL">Fatal error</option>
+				<option value="PAUSE">Frost protection</option>
+				<option value="OFF">Off</option>
+				<option value="OVERRIDE">At home override</option>
+			</options>
+		</state>
+	</channel-type>
+	<channel-type id="window_detection" advanced="true">
+		<item-type>Switch</item-type>
+		<label>Open window detection</label>
+		<description>Turn off heating when sudden temperature drop is detected</description>
+	</channel-type>
+	<channel-type id="window_open" advanced="true">
+		<item-type>Switch</item-type>
+		<label>Window open</label>
+		<description>Heating interrupted due to open window</description>
+		<state readOnly="true"/>
+	</channel-type>
+	<channel-type id="forecast" advanced="true">
+		<item-type>Switch</item-type>
+		<label>Temperature forecasting</label>
+		<description>Attempt to forecast heating and provide desired temperature at desired time</description>
+	</channel-type>
+	<channel-type id="screen_lock" advanced="true">
+		<item-type>Switch</item-type>
+		<label>Screen lock</label>
+		<description>Enable thermostat screen locking</description>
+	</channel-type>
+	<channel-type id="brightness" advanced="true">
+		<item-type>Number</item-type>
+		<label>Display brightness</label>
+		<description>Thermostat display brightness</description>
+		<state min="10" max="100"/>
+	</channel-type>
+	<channel-type id="battery" advanced="true">
+		<item-type>Number</item-type>
+		<label>Battery level</label>
+		<description>Wireless thermostat battery charge level</description>
+	</channel-type>
+	<channel-type id="heating_state" advanced="true">
+		<item-type>Switch</item-type>
+		<label>Heating state</label>
+		<description>Current heating state</description>
+		<state readOnly="true"/>
+	</channel-type>
+	<channel-type id="on_time_7_days" advanced="true">
+		<item-type>Number:Time</item-type>
+		<label>Heater on time in last 7 days</label>
+		<description>Heater on time during last 7 days</description>
+		<state readOnly="true"/>
+	</channel-type>
+	<channel-type id="on_time_30_days" advanced="true">
+		<item-type>Number:Time</item-type>
+		<label>Heater on time in last 30 days</label>
+		<description>Heater on time during last 30 days</description>
+		<state readOnly="true"/>
+	</channel-type>
+	<channel-type id="on_time_total" advanced="true">
+		<item-type>Number:Time</item-type>
+		<label>Total heater on time</label>
+		<description>Heater on time during thermostat lifetime</description>
+		<state readOnly="true"/>
+	</channel-type>
+	<channel-type id="sensor_disconnected" advanced="true">
+		<item-type>Switch</item-type>
+		<label>Sensor disconnected</label>
+		<description>Floor sensor disconnected</description>
+		<state readOnly="true"/>
+	</channel-type>
+	<channel-type id="sensor_shorted" advanced="true">
+		<item-type>Switch</item-type>
+		<label>Sensor shorted</label>
+		<description>Floor sensor short-circuited</description>
+		<state readOnly="true"/>
+	</channel-type>
+	<channel-type id="overheat" advanced="true">
+		<item-type>Switch</item-type>
+		<label>Overheat</label>
+		<description>Floor overheated</description>
+		<state readOnly="true"/>
+	</channel-type>
+	<channel-type id="unrecoverable" advanced="true">
+		<item-type>Switch</item-type>
+		<label>Unrecoverable failure</label>
+		<description>Internal software or hardware fault</description>
+		<state readOnly="true"/>
+	</channel-type>
+	<channel-type id="manual_mode">
+		<item-type>Switch</item-type>
+		<label>Manual mode</label>
+		<description>Disable schedule</description>
+	</channel-type>
+
+</thing:thing-descriptions>

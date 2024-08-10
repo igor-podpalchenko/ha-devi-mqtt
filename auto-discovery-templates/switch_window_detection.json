@@ -1,0 +1,20 @@
+{
+  "topic": "homeassistant/switch/${deviceSN}_window_detection/config",
+  "template": {
+    "state_topic": "devi/state/${deviceSN}/switch_window_detection",
+    "command_topic":"devi/command/${deviceSN}/switch_window_detection",
+    "device": {
+      "identifiers": [
+        "${deviceSN}"
+      ],
+      "manufacturer": "Danfoss",
+      "name": "DeviReg ${deviceSN}",
+      "model": "DeviReg Smart Thermostat"
+    },
+    "unique_id": "${deviceSN}_switch_window_detection",
+    "object_id": "devi_switch_window_detection_${deviceNumber}",
+    "name": "Switch Window detection",
+    "icon":"mdi:curtains",
+    "device_class": "switch"
+  }
+}

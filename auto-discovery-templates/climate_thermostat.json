@@ -1,0 +1,39 @@
+{
+  "topic": "homeassistant/climate/${deviceSN}_devi_thermostat/config",
+  "template": {
+    "name": "DeviReg Smart Thermostat",
+    "device_class": "climate",
+    "unique_id": "${deviceSN}_devi_thermostat",
+    "object_id": "devi_thermostat_${deviceNumber}",
+
+    "current_temperature_topic": "devi/state/${deviceSN}/temperature_floor",
+
+    "temperature_state_topic": "devi/state/${deviceSN}/setpoint_temporary",
+    "temperature_command_topic": "devi/command/${deviceSN}/setpoint_temporary",
+
+    "preset_mode_state_topic": "devi/state/${deviceSN}/select_control_mode",
+    "preset_mode_command_topic": "devi/command/${deviceSN}/thermostat_preset",
+    "preset_modes": ["SET OVERRIDE", "MANUAL", "OVERRIDE", "SCHEDULE", "VACATION", "PAUSE", "OFF"],
+
+    "mode_state_topic": "devi/state/${deviceSN}/binary_sensor_heating_state",
+    "mode_command_topic": "devi/command/${deviceSN}/thermostat_mode_command",
+    "modes": ["heat", "off"],
+
+    "min_temp": 3,
+    "max_temp": 40,
+    "temp_step": 0.5,
+    "temperature_unit": "C",
+
+    "mode_state_template": "{% set values = { 'off':'off', 'on':'heat'} %}\n  {{ values[value.lower()] if value.lower() in values.keys() else 'off' }}",
+
+    "icon": "hass:thermometer-bluetooth",
+    "device": {
+      "identifiers": [
+        "${deviceSN}"
+      ],
+      "manufacturer": "Danfoss",
+      "name": "DeviReg ${deviceSN}",
+      "model": "DeviReg Smart Thermostat"
+    }
+  }
+}

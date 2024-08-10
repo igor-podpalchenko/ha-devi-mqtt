@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="danfoss" />
+        <module name="io.homeassistant.binding.danfoss" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="EclipseCompilerSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="danfoss" options="" />
+      <module name="io.homeassistant.binding.danfoss" options="-annotationpath CLASSPATH -classpath /Users/phobos/Documents/Work/IoT/ha-devi-mqtt/target/dependency &quot;-err:+nullAnnot(org.eclipse.jdt.annotation.Nullable|org.eclipse.jdt.annotation.NonNull|org.eclipse.jdt.annotation.NonNullByDefault),+inheritNullAnnot,+nullAnnotConflict,-nullUncheckedConversion&quot; -warn:+null,+inheritNullAnnot,-nullUncheckedConversion,+nullAnnotRedundant,+nullDereference" />
+    </option>
+  </component>
+</project>

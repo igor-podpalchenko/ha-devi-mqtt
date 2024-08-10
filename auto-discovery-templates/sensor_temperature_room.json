@@ -1,0 +1,21 @@
+{
+  "topic": "homeassistant/sensor/${deviceSN}_temperature_room/config",
+  "template": {
+    "state_topic": "devi/state/${deviceSN}/temperature_room",
+    "device": {
+      "identifiers": [
+        "${deviceSN}"
+      ],
+      "manufacturer": "Danfoss",
+      "name": "DeviReg ${deviceSN}",
+      "model": "DeviReg Smart Thermostat"
+    },
+    "unique_id": "${deviceSN}_temperature_room",
+    "object_id": "devi_temperature_room_${deviceNumber}",
+    "name": "# T Room",
+    "unit_of_measurement": "C",
+    "device_class": "temperature",
+    "state_class": "measurement",
+    "force_update": true
+  }
+}

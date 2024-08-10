@@ -1,0 +1,17 @@
+{
+    "topic": "homeassistant/sensor/${deviceSN}_sys_firmware_version/config",
+    "template": {
+        "state_topic": "devi/state/${deviceSN}/sys_firmware_version",
+        "device": {
+            "identifiers": [
+                "${deviceSN}"
+            ],
+            "manufacturer": "Danfoss",
+            "name": "DeviReg ${deviceSN}",
+            "model": "DeviReg Smart Thermostat"
+        },
+        "unique_id": "${deviceSN}_sys_firmware_version",
+        "object_id": "devi_sys_firmware_version_${deviceNumber}",
+        "name": "Sys firmware version"
+    }
+}

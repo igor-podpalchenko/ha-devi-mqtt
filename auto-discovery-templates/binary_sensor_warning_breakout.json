@@ -1,0 +1,18 @@
+{
+    "topic": "homeassistant/binary_sensor/${deviceSN}_binary_sensor_warning_breakout/config",
+    "template": {
+        "state_topic": "devi/state/${deviceSN}/binary_sensor_warning_breakout",
+        "device": {
+            "identifiers": [
+                "${deviceSN}"
+            ],
+            "manufacturer": "Danfoss",
+            "name": "DeviReg ${deviceSN}",
+            "model": "DeviReg Smart Thermostat"
+        },
+        "unique_id": "${deviceSN}_binary_sensor_warning_breakout",
+        "object_id": "devi_binary_sensor_warning_breakout_${deviceNumber}",
+        "name": "Warning Breakout",
+        "device_class": "problem"
+    }
+}

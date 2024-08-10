@@ -1,0 +1,20 @@
+{
+  "topic": "homeassistant/switch/${deviceSN}_forecast/config",
+  "template": {
+    "state_topic": "devi/state/${deviceSN}/switch_forecast",
+    "command_topic":"devi/command/${deviceSN}/switch_forecast",
+    "device": {
+      "identifiers": [
+        "${deviceSN}"
+      ],
+      "manufacturer": "Danfoss",
+      "name": "DeviReg ${deviceSN}",
+      "model": "DeviReg Smart Thermostat"
+    },
+    "unique_id": "${deviceSN}_switch_forecast",
+    "object_id": "devi_switch_forecast_${deviceNumber}",
+    "name": "Switch Forecast",
+    "icon": "mdi:timelapse",
+    "device_class": "switch"
+  }
+}

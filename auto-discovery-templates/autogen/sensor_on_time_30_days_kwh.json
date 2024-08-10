@@ -1,0 +1,17 @@
+{
+    "topic": "homeassistant/sensor/${deviceSN}_on_time_30_days_kwh/config",
+    "template": {
+        "state_topic": "devi/state/${deviceSN}/on_time_30_days_kwh",
+        "device": {
+            "identifiers": [
+                "${deviceSN}"
+            ],
+            "manufacturer": "Danfoss",
+            "name": "DeviReg ${deviceSN}",
+            "model": "DeviReg Smart Thermostat"
+        },
+        "unique_id": "${deviceSN}_on_time_30_days_kwh",
+        "object_id": "devi_on_time_30_days_kwh_${deviceNumber}",
+        "name": "On time 30 days kwh"
+    }
+}

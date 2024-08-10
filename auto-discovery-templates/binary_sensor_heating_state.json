@@ -1,0 +1,18 @@
+{
+    "topic": "homeassistant/binary_sensor/${deviceSN}_binary_sensor_heating_state/config",
+    "template": {
+        "state_topic": "devi/state/${deviceSN}/binary_sensor_heating_state",
+        "device": {
+            "identifiers": [
+                "${deviceSN}"
+            ],
+            "manufacturer": "Danfoss",
+            "name": "DeviReg ${deviceSN}",
+            "model": "DeviReg Smart Thermostat"
+        },
+        "unique_id": "${deviceSN}_binary_sensor_heating_state",
+        "object_id": "devi_binary_sensor_heating_state_${deviceNumber}",
+        "name": "Sensor heating state",
+        "device_class": "heat"
+    }
+}

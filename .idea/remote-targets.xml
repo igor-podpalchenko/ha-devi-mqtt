@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="root@192.168.1.4:22" type="ssh/sftp" uuid="32ae0d8a-2ca1-40d6-a159-61ff583b86dc">
+        <config>
+          <option name="projectRootOnTarget" value="/root/org.openhab.binding.devireg-master" />
+          <option name="serverName" value="root@192.168.1.4:22 password" />
+          <option name="useRsync" value="true" />
+        </config>
+        <ContributedStateBase type="JavaLanguageRuntime">
+          <config>
+            <option name="homePath" value="/opt/jdk-18" />
+            <option name="javaVersionString" value="18" />
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>

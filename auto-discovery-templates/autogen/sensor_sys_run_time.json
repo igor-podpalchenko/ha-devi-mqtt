@@ -1,0 +1,17 @@
+{
+    "topic": "homeassistant/sensor/${deviceSN}_sys_run_time/config",
+    "template": {
+        "state_topic": "devi/state/${deviceSN}/sys_run_time",
+        "device": {
+            "identifiers": [
+                "${deviceSN}"
+            ],
+            "manufacturer": "Danfoss",
+            "name": "DeviReg ${deviceSN}",
+            "model": "DeviReg Smart Thermostat"
+        },
+        "unique_id": "${deviceSN}_sys_run_time",
+        "object_id": "devi_sys_run_time_${deviceNumber}",
+        "name": "Sys run time"
+    }
+}

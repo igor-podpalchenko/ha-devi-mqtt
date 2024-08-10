@@ -1,0 +1,17 @@
+{
+    "topic": "homeassistant/sensor/${deviceSN}_sys_serial_number/config",
+    "template": {
+        "state_topic": "devi/state/${deviceSN}/sys_serial_number",
+        "device": {
+            "identifiers": [
+                "${deviceSN}"
+            ],
+            "manufacturer": "Danfoss",
+            "name": "DeviReg ${deviceSN}",
+            "model": "DeviReg Smart Thermostat"
+        },
+        "unique_id": "${deviceSN}_sys_serial_number",
+        "object_id": "devi_sys_serial_number_${deviceNumber}",
+        "name": "Sys serial number"
+    }
+}
