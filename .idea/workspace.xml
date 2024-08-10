@@ -7,7 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Renamed jar." />
+    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Dockerfile.">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,12 +46,12 @@
     &quot;assignee&quot;: &quot;igor-podpalchenko&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/igor-podpalchenko/ha-devi-mqtt-private.git&quot;,
-    &quot;accountId&quot;: &quot;45c8ff83-6560-4e77-b97f-87b7bde5a5c3&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/igor-podpalchenko/ha-devi-mqtt.git",
+    "accountId": "45c8ff83-6560-4e77-b97f-87b7bde5a5c3"
   }
-}</component>
+}]]></component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
@@ -209,6 +211,7 @@
       <workItem from="1723208834541" duration="168000" />
       <workItem from="1723209007136" duration="19803000" />
       <workItem from="1723330311794" duration="179000" />
+      <workItem from="1723332171098" duration="1348000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -482,7 +485,31 @@
       <option name="project" value="LOCAL" />
       <updated>1723330356901</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Initial commit.">
+      <option name="closed" value="true" />
+      <created>1723332619227</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1723332619227</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Fixed github workflows.">
+      <option name="closed" value="true" />
+      <created>1723333134905</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1723333134905</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Dockerfile.">
+      <option name="closed" value="true" />
+      <created>1723333246663</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1723333246663</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,9 +533,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moved to JDK 21" />
-    <MESSAGE value="Removed extra dependencies" />
-    <MESSAGE value="Removed Discovery and IconMaster dependencies" />
     <MESSAGE value="Removed HTML/CSS/JS for old discovery phase" />
     <MESSAGE value="Discovery implemented." />
     <MESSAGE value="Initial Auto-Discovery added" />
@@ -531,7 +555,10 @@
     <MESSAGE value="Minor changes." />
     <MESSAGE value="Added Docker and command parser." />
     <MESSAGE value="Renamed jar." />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed jar." />
+    <MESSAGE value="Initial commit." />
+    <MESSAGE value="Fixed github workflows." />
+    <MESSAGE value="Dockerfile." />
+    <option name="LAST_COMMIT_MESSAGE" value="Dockerfile." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
