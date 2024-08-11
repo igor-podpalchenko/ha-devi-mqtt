@@ -87,6 +87,14 @@ docker run -it --rm -v $(pwd)/devi_config.json:/app/config/devi_config.json -v $
 I've built simple lovelace Card to edit weekly schedule for this thermostat.
 It's available here: https://github.com/igor-podpalchenko/ha-weekly-schedule-card
 
+```yaml
+type: custom:weekly-schedule-card
+entity: sensor.devi_sensor_week_schedule_0
+devMode: false
+encodingSchema: Devi
+commandTopic: devi/command/10159384/sensor_week_schedule
+```
+
 #### **`Available Sensors`**
 
 | channel                             | type          | description                                                                                                                   | Read-only |
