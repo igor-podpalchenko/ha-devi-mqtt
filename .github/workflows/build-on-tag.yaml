@@ -40,7 +40,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # A personal access token
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./target/danfoss-1.0.0.jar
-        asset_name: danfoss-1.0.0.jar
+        asset_path: ./target/ha-devi-mqtt.jar
+        asset_name: ha-devi-mqtt.jar
         asset_content_type: application/java-archive
                                                       

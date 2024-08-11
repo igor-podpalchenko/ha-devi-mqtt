@@ -7,8 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Dockerfile.">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Reactivated workflow.">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build-on-tag.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build-on-tag.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +212,7 @@
       <workItem from="1723208834541" duration="168000" />
       <workItem from="1723209007136" duration="19803000" />
       <workItem from="1723330311794" duration="179000" />
-      <workItem from="1723332171098" duration="1348000" />
+      <workItem from="1723332171098" duration="2363000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -509,7 +510,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723333246663</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Changes.">
+      <option name="closed" value="true" />
+      <created>1723333579263</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1723333579263</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Reactivated workflow.">
+      <option name="closed" value="true" />
+      <created>1723334195352</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1723334195352</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,8 +550,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed HTML/CSS/JS for old discovery phase" />
-    <MESSAGE value="Discovery implemented." />
     <MESSAGE value="Initial Auto-Discovery added" />
     <MESSAGE value="setpoints for temparatures Auto-Discovery added" />
     <MESSAGE value="Added test code for Hexa-code" />
@@ -558,7 +573,9 @@
     <MESSAGE value="Initial commit." />
     <MESSAGE value="Fixed github workflows." />
     <MESSAGE value="Dockerfile." />
-    <option name="LAST_COMMIT_MESSAGE" value="Dockerfile." />
+    <MESSAGE value="Changes." />
+    <MESSAGE value="Reactivated workflow." />
+    <option name="LAST_COMMIT_MESSAGE" value="Reactivated workflow." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
