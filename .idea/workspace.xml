@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Workflow fix.">
+    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Readme update.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -212,7 +212,7 @@
       <workItem from="1723208834541" duration="168000" />
       <workItem from="1723209007136" duration="19803000" />
       <workItem from="1723330311794" duration="179000" />
-      <workItem from="1723332171098" duration="8433000" />
+      <workItem from="1723332171098" duration="12080000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -534,7 +534,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723334558013</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Readme update.">
+      <option name="closed" value="true" />
+      <created>1723401566646</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1723401566647</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +566,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="setpoints for temparatures Auto-Discovery added" />
     <MESSAGE value="Added test code for Hexa-code" />
     <MESSAGE value="Optimized naming structure" />
     <MESSAGE value="Added all sensors/switches/selects" />
@@ -583,7 +590,8 @@
     <MESSAGE value="Changes." />
     <MESSAGE value="Reactivated workflow." />
     <MESSAGE value="Workflow fix." />
-    <option name="LAST_COMMIT_MESSAGE" value="Workflow fix." />
+    <MESSAGE value="Readme update." />
+    <option name="LAST_COMMIT_MESSAGE" value="Readme update." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
