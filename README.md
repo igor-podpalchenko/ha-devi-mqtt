@@ -40,6 +40,22 @@ java -cp ha-devi-mqtt.jar io.homeassistant.devi.mqtt.service.DiscoveryService
 3. The configuration file will be generated (devi_config.json).
 4. Keep the configuration file in secure place, it contains private key required to control your device.
 
+## Runtime
+
+Few options how to start is available.
+
+1. Plain Java
+```shell
+java -cp target/ha-devi-mqtt.jar io.homeassistant.devi.mqtt.service.ConsoleRunner --auto-discovery-templates auto-discovery-templates --mqtt-config mqtt_config.json --devi-config devi_config.json
+```
+2. Docker
+```shell
+java -cp ha-devi-mqtt.jar io.homeassistant.devi.mqtt.service.DiscoveryService
+```
+
+
+## Configuration
+
 #### **`devi_config.json`**
 ```json
 {
