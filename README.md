@@ -95,6 +95,46 @@ encodingSchema: Devi
 commandTopic: devi/command/10159384/sensor_week_schedule
 ```
 
+## Climate lovelace card
+
+- Mode: used only to display state. Off / Heat - corresponds to relay state.
+- Presets: displays current mode, option "SET OVERRIDE" is used to switch to OVERRIDE mode (Temporary Setpoint is used to set target temperature). 
+- Temperature slider: used to set target temperature (Temporary Setpoint).
+
+Note: thermostat has a plenty of modes, every mode has it's own temperature setpoint.
+Override mode sets temperature till the end of the day, after that thermostat will switch to previous mode.
+
+## Auto-discovery-templates folder
+
+This folder contains templates for auto-discovery of the devices in Home Assistant.
+The templates are in JSON format and are used by the discovery service to create the entities.
+You should copy this folder to your installation.
+
+${deviceSN} - will be replaced with device serial number
+${deviceNumber} - will be replaced with device number (if more than one device is used at home)
+
+#### **`binary_sensor_heating_state.json`**
+```json
+{
+    "topic": "homeassistant/binary_sensor/${deviceSN}_binary_sensor_heating_state/config",
+    "template": {
+        "state_topic": "devi/state/${deviceSN}/binary_sensor_heating_state",
+        "device": {
+            "identifiers": [
+                "${deviceSN}"
+            ],
+            "manufacturer": "Danfoss",
+            "name": "DeviReg ${deviceSN}",
+            "model": "DeviReg Smart Thermostat"
+        },
+        "unique_id": "${deviceSN}_binary_sensor_heating_state",
+        "object_id": "devi_binary_sensor_heating_state_${deviceNumber}",
+        "name": "Sensor heating state",
+        "device_class": "heat"
+    }
+}
+```
+
 #### **`Available Sensors`**
 
 | channel                             | type          | description                                                                                                                   | Read-only |

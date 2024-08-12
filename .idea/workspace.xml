@@ -7,9 +7,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Docker build updated (added MACOS platform).">
+    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Updated doc.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/homeassistant/binding/danfoss/internal/DeviRegHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/homeassistant/binding/danfoss/internal/DeviRegHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/ConsoleRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/ConsoleRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +214,7 @@
       <workItem from="1723208834541" duration="168000" />
       <workItem from="1723209007136" duration="19803000" />
       <workItem from="1723330311794" duration="179000" />
-      <workItem from="1723332171098" duration="15544000" />
+      <workItem from="1723332171098" duration="19627000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -558,7 +560,31 @@
       <option name="project" value="LOCAL" />
       <updated>1723407826060</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Update doc. Added reference to schedule card.">
+      <option name="closed" value="true" />
+      <created>1723414205549</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1723414205549</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Update doc. Added reference to schedule card.">
+      <option name="closed" value="true" />
+      <created>1723414225103</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1723414225103</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Updated doc.">
+      <option name="closed" value="true" />
+      <created>1723414837801</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1723414837801</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,8 +608,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Optimized naming structure" />
-    <MESSAGE value="Added all sensors/switches/selects" />
     <MESSAGE value="Added sensors and names refactored" />
     <MESSAGE value="Fixes" />
     <MESSAGE value="Added write channel through mediator" />
@@ -607,7 +631,9 @@
     <MESSAGE value="Workflow fix." />
     <MESSAGE value="Readme update." />
     <MESSAGE value="Docker build updated (added MACOS platform)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Docker build updated (added MACOS platform)." />
+    <MESSAGE value="Update doc. Added reference to schedule card." />
+    <MESSAGE value="Updated doc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated doc." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -625,11 +651,6 @@
           <url>jar://$MAVEN_REPOSITORY$/org/openhab/core/bundles/org.openhab.core.thing/3.2.0/org.openhab.core.thing-3.2.0.jar!/org/openhab/core/thing/binding/BaseThingHandler.class</url>
           <line>143</line>
           <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/binding/danfoss/internal/DeviRegHandler.java</url>
-          <line>364</line>
-          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/MockThing.java</url>
@@ -665,16 +686,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/MockThingCallback.java</url>
           <line>28</line>
           <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/ConsoleRunner.java</url>
-          <line>247</line>
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/binding/danfoss/internal/DeviRegHandler.java</url>
-          <line>459</line>
-          <option name="timeStamp" value="78" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

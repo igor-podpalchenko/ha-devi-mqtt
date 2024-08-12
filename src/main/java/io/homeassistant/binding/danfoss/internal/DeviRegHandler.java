@@ -81,9 +81,8 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
 
                 ScheduleManager writeScheduleManager = new ScheduleManager();
                 boolean fromJsonSuccess = writeScheduleManager.fromJson(payload);
-                System.out.println("Loaded from JSON: " + fromJsonSuccess);
 
-                writeScheduleManager.printScheduleHumanReadable();
+                //writeScheduleManager.printScheduleHumanReadable();
 
                 Map<String, byte[]> parts = writeScheduleManager.splitScheduleToParts();
 
@@ -386,8 +385,6 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
         updateState(ch, new StringType(String.valueOf(time)));
     }
 
-    //@Nullable
-    //private String autoSetpointChannel;
 
     private String selectSetpointChannelByModeAndState(String mode, String state) {
 

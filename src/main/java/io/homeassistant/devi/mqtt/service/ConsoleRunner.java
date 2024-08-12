@@ -217,7 +217,6 @@ public class ConsoleRunner {
         commandMediator.addDeviRegHandler(deviceSN, deviRegHandler);
 
         MockThingCallback reportingCallback = new MockThingCallback((key, value) -> {
-            System.out.println("Key: " + key + ", Value: " + value);
             mqttService.SendSensorData(deviceSN, key, value);
         });
 
@@ -245,7 +244,6 @@ public class ConsoleRunner {
         deviRegHandler.handleCommand(away_temp_uid, new DecimalType(10.0));
          */
 
-        System.out.println("=== Sending command ===");
 
 
         // Requesting refresh, thermostat will respond latest value
