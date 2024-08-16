@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Updated docs. Removed tracing.">
+    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Fixed bug in DiscoveryService.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/DiscoveryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/DiscoveryService.java" afterDir="false" />
     </list>
@@ -212,7 +212,7 @@
       <workItem from="1723208834541" duration="168000" />
       <workItem from="1723209007136" duration="19803000" />
       <workItem from="1723330311794" duration="179000" />
-      <workItem from="1723332171098" duration="25516000" />
+      <workItem from="1723332171098" duration="26395000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -590,7 +590,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723503928383</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Fixed bug in DiscoveryService.">
+      <option name="closed" value="true" />
+      <created>1723805144022</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1723805144022</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -614,7 +622,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixes" />
     <MESSAGE value="Added write channel through mediator" />
     <MESSAGE value="Climate component is fully functional" />
     <MESSAGE value="Fixed maven console build and upgraded to SDK 22" />
@@ -639,7 +646,8 @@
     <MESSAGE value="Update doc. Added reference to schedule card." />
     <MESSAGE value="Updated doc." />
     <MESSAGE value="Updated docs. Removed tracing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated docs. Removed tracing." />
+    <MESSAGE value="Fixed bug in DiscoveryService." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug in DiscoveryService." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

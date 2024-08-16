@@ -253,7 +253,7 @@ public class DiscoveryService {
                 DeviRegHandler deviRegHandler = new DeviRegHandler(new MockThing());
                 MockThingCallback reportingCallback = new MockThingCallback((key, value) -> {
 
-                    //System.out.println("Key: " + key + ", Value: " + value);
+                    System.out.println("Parsing thermostat data - key: " + key + ", value: " + value);
 
                     if(!room.containsKey("sys_serial_number") && key == "sys_serial_number") {
                         room.put("serialNumber", value);
