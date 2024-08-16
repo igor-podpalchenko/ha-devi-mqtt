@@ -234,7 +234,7 @@ public class DiscoveryService {
         configMap.put("privateKey", DanfossBindingConfig.get().privateKey);
 
         System.out.println(
-                String.format("Home data, phonePeerID: %s  privateKey: ", jsonMap.get("peerId"), jsonMap.get("privateKey")));
+                String.format("Home data, phonePeerID: %s  privateKey: %s", jsonMap.get("peerId"), jsonMap.get("privateKey")));
 
         // Iterate over the list of devices, connect and extract SN
         for (Map<String, String> room : roomsList) {
