@@ -252,8 +252,10 @@ public class DiscoveryService {
                 DanfossBindingConfig.update(configMap, configAdmin);
                 DeviRegHandler deviRegHandler = new DeviRegHandler(new MockThing());
                 MockThingCallback reportingCallback = new MockThingCallback((key, value) -> {
+
                     //System.out.println("Key: " + key + ", Value: " + value);
-                    if(!room.containsKey("serialNumber") && key == "serialNumber") {
+
+                    if(!room.containsKey("sys_serial_number") && key == "sys_serial_number") {
                         room.put("serialNumber", value);
                         deviRegHandler.dispose();
 

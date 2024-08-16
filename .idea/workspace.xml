@@ -7,11 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Updated doc.">
+    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Updated docs. Removed tracing.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/homeassistant/binding/danfoss/internal/DeviRegHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/homeassistant/binding/danfoss/internal/DeviRegHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/ConsoleRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/ConsoleRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/DiscoveryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/DiscoveryService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,31 +73,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ConsoleRunner.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.DiscoveryService.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.Local.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ScheduleManager.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.Dockerfile.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/phobos/Documents/Work/IoT/ha-devi-mqtt&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2850575&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ConsoleRunner.executor": "Debug",
+    "Application.DiscoveryService.executor": "Debug",
+    "Application.Local.executor": "Run",
+    "Application.ScheduleManager.executor": "Run",
+    "Docker.Dockerfile.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/phobos/Documents/Work/IoT/ha-devi-mqtt",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2850575",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/auto-discovery-templates" />
@@ -111,7 +109,7 @@
       <recent name="io.homeassistant.binding" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Local">
+  <component name="RunManager" selected="Application.DiscoveryService">
     <configuration name="DiscoveryService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="io.homeassistant.devi.mqtt.service.DiscoveryService" />
       <module name="danfoss" />
@@ -167,8 +165,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="Application.DiscoveryService" />
+        <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="Application.ScheduleManager" />
       </list>
     </recent_temporary>
@@ -214,7 +212,7 @@
       <workItem from="1723208834541" duration="168000" />
       <workItem from="1723209007136" duration="19803000" />
       <workItem from="1723330311794" duration="179000" />
-      <workItem from="1723332171098" duration="19627000" />
+      <workItem from="1723332171098" duration="25516000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -584,7 +582,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723414837801</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Updated docs. Removed tracing.">
+      <option name="closed" value="true" />
+      <created>1723503928383</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1723503928383</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +614,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added sensors and names refactored" />
     <MESSAGE value="Fixes" />
     <MESSAGE value="Added write channel through mediator" />
     <MESSAGE value="Climate component is fully functional" />
@@ -633,7 +638,8 @@
     <MESSAGE value="Docker build updated (added MACOS platform)." />
     <MESSAGE value="Update doc. Added reference to schedule card." />
     <MESSAGE value="Updated doc." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated doc." />
+    <MESSAGE value="Updated docs. Removed tracing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated docs. Removed tracing." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -686,6 +692,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/MockThingCallback.java</url>
           <line>28</line>
           <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/DiscoveryService.java</url>
+          <line>236</line>
+          <option name="timeStamp" value="79" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
