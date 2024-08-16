@@ -233,6 +233,9 @@ public class DiscoveryService {
 
         configMap.put("privateKey", DanfossBindingConfig.get().privateKey);
 
+        System.out.println(
+                String.format("Home data, phonePeerID: %s  privateKey: ", jsonMap.get("peerId"), jsonMap.get("privateKey")));
+
         // Iterate over the list of devices, connect and extract SN
         for (Map<String, String> room : roomsList) {
             for (Map.Entry<String, String> entry : room.entrySet()) {
@@ -251,6 +254,7 @@ public class DiscoveryService {
 
                 DanfossBindingConfig.update(configMap, configAdmin);
                 DeviRegHandler deviRegHandler = new DeviRegHandler(new MockThing());
+
                 MockThingCallback reportingCallback = new MockThingCallback((key, value) -> {
 
                     System.out.println("Parsing thermostat data - key: " + key + ", value: " + value);
@@ -266,8 +270,11 @@ public class DiscoveryService {
 
                 deviRegHandler.setCallback(reportingCallback);
 
+                System.out.println(String.format("Connecting to peer: %s", DanfossBindingConfig.get().publicKey));
+
                 deviRegHandler.initialize();
 
+                Thread.sleep(3000);
             }
         }
 

@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Fixed bug in DiscoveryService.">
+    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Added logging.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/DiscoveryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/DiscoveryService.java" afterDir="false" />
     </list>
@@ -212,7 +212,7 @@
       <workItem from="1723208834541" duration="168000" />
       <workItem from="1723209007136" duration="19803000" />
       <workItem from="1723330311794" duration="179000" />
-      <workItem from="1723332171098" duration="26395000" />
+      <workItem from="1723332171098" duration="33391000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -598,7 +598,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723805144022</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Added logging.">
+      <option name="closed" value="true" />
+      <created>1723806167149</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1723806167149</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -622,7 +630,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added write channel through mediator" />
     <MESSAGE value="Climate component is fully functional" />
     <MESSAGE value="Fixed maven console build and upgraded to SDK 22" />
     <MESSAGE value="Added shared jar (includes all the dependencies into output jar)&#10;Added example build / run / setup scripts." />
@@ -647,7 +654,8 @@
     <MESSAGE value="Updated doc." />
     <MESSAGE value="Updated docs. Removed tracing." />
     <MESSAGE value="Fixed bug in DiscoveryService." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug in DiscoveryService." />
+    <MESSAGE value="Added logging." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added logging." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -700,11 +708,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/MockThingCallback.java</url>
           <line>28</line>
           <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/DiscoveryService.java</url>
-          <line>236</line>
-          <option name="timeStamp" value="79" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
