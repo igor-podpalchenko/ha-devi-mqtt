@@ -9,7 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Updated Discovery">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/ConsoleRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/ConsoleRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/DiscoveryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/DiscoveryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/MockThing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/MockThing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +79,7 @@
   "keyToString": {
     "Application.ConsoleRunner.executor": "Debug",
     "Application.DiscoveryService.executor": "Debug",
-    "Application.Local.executor": "Run",
+    "Application.Local.executor": "Debug",
     "Application.ScheduleManager.executor": "Run",
     "Docker.Dockerfile.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -109,7 +111,7 @@
       <recent name="io.homeassistant.binding" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DiscoveryService">
+  <component name="RunManager" selected="Application.Local">
     <configuration name="DiscoveryService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="io.homeassistant.devi.mqtt.service.DiscoveryService" />
       <module name="danfoss" />
@@ -212,15 +214,7 @@
       <workItem from="1723208834541" duration="168000" />
       <workItem from="1723209007136" duration="19803000" />
       <workItem from="1723330311794" duration="179000" />
-      <workItem from="1723332171098" duration="34457000" />
-    </task>
-    <task id="LOCAL-00002" summary="package refactored">
-      <option name="closed" value="true" />
-      <created>1722512676157</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1722512676157</updated>
+      <workItem from="1723332171098" duration="42775000" />
     </task>
     <task id="LOCAL-00003" summary="package refactored">
       <option name="closed" value="true" />
@@ -606,7 +600,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723814448352</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Updated Discovery">
+      <option name="closed" value="true" />
+      <created>1723816132520</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1723816132520</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,21 +676,6 @@
           <line>143</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/MockThing.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/MockThing.java</url>
-          <line>133</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/MockThing.java</url>
-          <line>138</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/binding/danfoss/internal/GridConnectionKeeper.java</url>
           <line>33</line>
@@ -708,6 +695,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/MockThingCallback.java</url>
           <line>28</line>
           <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/MockThing.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="81" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

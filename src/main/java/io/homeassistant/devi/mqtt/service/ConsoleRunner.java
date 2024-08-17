@@ -212,7 +212,7 @@ public class ConsoleRunner {
         // Calling the update method
         DanfossBindingConfig.update(configMap, configAdmin);
 
-        DeviRegHandler deviRegHandler = new DeviRegHandler(new MockThing());
+        DeviRegHandler deviRegHandler = new DeviRegHandler(new MockThing(devicePeerID));
 
         commandMediator.addDeviRegHandler(deviceSN, deviRegHandler);
 

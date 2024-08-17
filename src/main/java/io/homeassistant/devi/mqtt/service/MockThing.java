@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import io.homeassistant.binding.danfoss.internal.DeviRegConfiguration;
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.core.common.registry.Identifiable;
@@ -15,6 +17,12 @@ import static io.homeassistant.binding.danfoss.internal.DanfossBindingConstants.
 
 @NonNullByDefault
 public class MockThing implements Thing {
+
+    private String peerId;
+
+    public MockThing(String peerId) {
+        this.peerId = peerId;
+    }
 
     private Map<String, String> prorerties = new HashMap<String, String>();
     @Override
@@ -95,9 +103,7 @@ public class MockThing implements Thing {
         Configuration config = new Configuration();
 
         Map<String, Object> configMap = new HashMap<>();
-        configMap.put("privateKey", "ac93528eb2d48cdb7a3c51456e831098937d19c23a7ffac254e6b49ce88ca185");
-        configMap.put("peerId", "3e1ea4a2302c66ce657bf1b13c62417f1a57269b2a5dd87eb0b84b3553586975");
-        configMap.put("userName", "OpenSDG test");
+        configMap.put(DeviRegConfiguration.PEER_ID, this.peerId);
 
         config.setProperties(configMap);
         return config;

@@ -110,11 +110,14 @@ public class DiscoveryService {
         jsonMap.put("peerId", phonePeerID);
         jsonMap.put("userName", userName);
 
+        System.out.println(String.format("Home data, publicKey: %s", jsonMap.get("peerId")));
+        System.out.println(String.format("Home data, privateKey: %s", jsonMap.get("privateKey")));
+        System.out.println(String.format("Home data, userName: %s", jsonMap.get("userName")));
 
         boolean finished = false;
         do {
 
-            logger.error("Cycle");
+            System.out.println("Discovery cycle started");
 
             Thread.sleep(500);
 
@@ -224,17 +227,17 @@ public class DiscoveryService {
                 jsonMap.put("rooms", roomsList);
             }
 
+            System.out.println("Discovery cycle ended");
+
         } while (!finished);
 
+        System.out.println("Querying thermostat serial numbers started");
 
         // CountDownLatch to wait for all async tasks to complete
         CountDownLatch latch = new CountDownLatch(roomsList.size());
         List<CompletableFuture<Void>> futures = new ArrayList<>();
 
         configMap.put("privateKey", DanfossBindingConfig.get().privateKey);
-
-        System.out.println(
-                String.format("Home data, phonePeerID: %s  privateKey: %s", jsonMap.get("peerId"), jsonMap.get("privateKey")));
 
         // Iterate over the list of devices, connect and extract SN
         for (Map<String, String> room : roomsList) {
@@ -253,7 +256,7 @@ public class DiscoveryService {
 
 
                 DanfossBindingConfig.update(configMap, configAdmin);
-                DeviRegHandler deviRegHandler = new DeviRegHandler(new MockThing());
+                DeviRegHandler deviRegHandler = new DeviRegHandler(new MockThing(entry.getValue()));
 
                 MockThingCallback reportingCallback = new MockThingCallback((key, value) -> {
 
@@ -270,7 +273,7 @@ public class DiscoveryService {
 
                 deviRegHandler.setCallback(reportingCallback);
 
-                System.out.println(String.format("Connecting to peer: %s", DanfossBindingConfig.get().publicKey));
+                System.out.println(String.format("Connecting to peer: %s", entry.getValue()));
 
                 deviRegHandler.initialize();
 
