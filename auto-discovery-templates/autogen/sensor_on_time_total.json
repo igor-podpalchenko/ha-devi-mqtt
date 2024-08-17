@@ -1,0 +1,17 @@
+{
+    "topic": "homeassistant/sensor/${deviceSN}_on_time_total/config",
+    "template": {
+        "state_topic": "devi/state/${deviceSN}/on_time_total",
+        "device": {
+            "identifiers": [
+                "${deviceSN}"
+            ],
+            "manufacturer": "Danfoss",
+            "name": "DeviReg ${deviceSN}",
+            "model": "DeviReg Smart Thermostat"
+        },
+        "unique_id": "${deviceSN}_on_time_total",
+        "object_id": "devi_on_time_total_${deviceNumber}",
+        "name": "On time total"
+    }
+}

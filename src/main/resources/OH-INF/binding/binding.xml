@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<binding:binding id="danfoss" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:binding="https://openhab.org/schemas/binding/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/binding/v1.0.0 https://openhab.org/schemas/binding-1.0.0.xsd">
+
+	<name>Danfoss Binding</name>
+	<description>Danfoss heating solutions binding.</description>
+	<author>Pavel Fedin</author>
+
+	<config-description>
+		<parameter name="privateKey" type="text" readOnly="true" pattern="[0-9A-Fa-f]{64}">
+			<label>SecureDeviceGrid peer private key</label>
+			<description>Private key used by OpenHAB to comminicate with devices.</description>
+			<verify>true</verify>
+		</parameter>
+		<parameter name="publicKey" type="text" readOnly="true" pattern="[0-9A-Fa-f]{64}">
+			<label>SecureDeviceGrid peer ID</label>
+			<description>Indentifies the OpenHAB installation on SecureDeviceGrid network. Also a public key for the
+				communication.</description>
+			<verify>true</verify>
+		</parameter>
+		<parameter name="userName" type="text" required="true">
+			<label>User name</label>
+			<description>User name, as will be seen by smartphone app. Required for configuration sharing.</description>
+			<default>OpenHAB</default>
+		</parameter>
+	</config-description>
+
+</binding:binding>

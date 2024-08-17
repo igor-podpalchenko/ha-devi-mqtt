@@ -1,0 +1,21 @@
+{
+  "topic": "homeassistant/sensor/${deviceSN}_temperature_floor/config",
+  "template": {
+    "state_topic": "devi/state/${deviceSN}/temperature_floor",
+    "device": {
+      "identifiers": [
+        "${deviceSN}"
+      ],
+      "manufacturer": "Danfoss",
+      "name": "DeviReg ${deviceSN}",
+      "model": "DeviReg Smart Thermostat"
+    },
+    "unique_id": "${deviceSN}_temperature_floor",
+    "object_id": "devi_temperature_floor_${deviceNumber}",
+    "name": "# T Floor",
+    "unit_of_measurement": "C",
+    "device_class": "temperature",
+    "state_class": "measurement",
+    "force_update": true
+  }
+}

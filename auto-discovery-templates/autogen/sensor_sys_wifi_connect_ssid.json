@@ -1,0 +1,17 @@
+{
+    "topic": "homeassistant/sensor/${deviceSN}_sys_wifi_connect_ssid/config",
+    "template": {
+        "state_topic": "devi/state/${deviceSN}/sys_wifi_connect_ssid",
+        "device": {
+            "identifiers": [
+                "${deviceSN}"
+            ],
+            "manufacturer": "Danfoss",
+            "name": "DeviReg ${deviceSN}",
+            "model": "DeviReg Smart Thermostat"
+        },
+        "unique_id": "${deviceSN}_sys_wifi_connect_ssid",
+        "object_id": "devi_sys_wifi_connect_ssid_${deviceNumber}",
+        "name": "Sys wifi connect ssid"
+    }
+}

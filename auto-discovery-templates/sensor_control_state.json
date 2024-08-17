@@ -1,0 +1,29 @@
+{
+  "topic": "homeassistant/sensor/${deviceSN}_sensor_control_state/config",
+  "template": {
+    "state_topic": "devi/state/${deviceSN}/sensor_control_state",
+    "device": {
+      "identifiers": [
+        "${deviceSN}"
+      ],
+      "manufacturer": "Danfoss",
+      "name": "DeviReg ${deviceSN}",
+      "model": "DeviReg Smart Thermostat"
+    },
+    "unique_id": "${deviceSN}_control_state",
+    "object_id": "devi_control_state_${deviceNumber}",
+    "name": "# Control state",
+    "force_update": true,
+    "options": [
+      "CONFIGURING",
+      "MANUAL",
+      "HOME",
+      "AWAY",
+      "VACATION",
+      "FATAL",
+      "PAUSE",
+      "OFF",
+      "OVERRIDE"
+    ]
+  }
+}

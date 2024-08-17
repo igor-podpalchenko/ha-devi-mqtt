@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="Fixed bug with hardcoded peerId">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DependenciesAnalyzeManager">
+    <option name="forwardDirection" value="false" />
+  </component>
+  <component name="DsmViewSettings">
+    <option name="flattenPackages" value="true" />
+    <option name="useGradient" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/main" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="origin/main" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;igor-podpalchenko&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/igor-podpalchenko/ha-devi-mqtt.git",
+    "accountId": "45c8ff83-6560-4e77-b97f-87b7bde5a5c3"
+  }
+}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2jSo7cjGddC2Rlcj9WHeUxJg4s9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ConsoleRunner.executor": "Debug",
+    "Application.DiscoveryService.executor": "Debug",
+    "Application.Local.executor": "Run",
+    "Application.ScheduleManager.executor": "Run",
+    "Docker.Dockerfile.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/phobos/Documents/Work/IoT/ha-devi-mqtt",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2850575",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/auto-discovery-templates" />
+      <recent name="$PROJECT_DIR$/target" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="io.homeassistant.devi.mqtt.service" />
+      <recent name="io.homeassistant.binding" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Local">
+    <configuration name="DiscoveryService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.homeassistant.devi.mqtt.service.DiscoveryService" />
+      <module name="danfoss" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.homeassistant.devi.mqtt.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Local" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="io.homeassistant.devi.mqtt.service.ConsoleRunner" />
+      <module name="danfoss" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScheduleManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="io.homeassistant.devi.mqtt.service.ScheduleManager" />
+      <module name="danfoss" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.homeassistant.devi.mqtt.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Local" />
+      <item itemvalue="Application.ScheduleManager" />
+      <item itemvalue="Application.DiscoveryService" />
+      <item itemvalue="Docker.Dockerfile" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DiscoveryService" />
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Application.ScheduleManager" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18968.26" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18968.26" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2c88f8a7-29f2-43cb-bec3-b7005ce62328" name="Changes" comment="" />
+      <created>1721389673992</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721389673992</updated>
+      <workItem from="1721389675328" duration="1175000" />
+      <workItem from="1721390856080" duration="101000" />
+      <workItem from="1721390959976" duration="601000" />
+      <workItem from="1721391565402" duration="2427000" />
+      <workItem from="1721396459637" duration="1619000" />
+      <workItem from="1721398085653" duration="3742000" />
+      <workItem from="1721467125163" duration="2139000" />
+      <workItem from="1721481888407" duration="21129000" />
+      <workItem from="1721588295690" duration="2742000" />
+      <workItem from="1721591049729" duration="17675000" />
+      <workItem from="1721667729133" duration="3076000" />
+      <workItem from="1721674583073" duration="39104000" />
+      <workItem from="1722508313521" duration="3133000" />
+      <workItem from="1722514189628" duration="1969000" />
+      <workItem from="1722516168786" duration="34974000" />
+      <workItem from="1722602360033" duration="78077000" />
+      <workItem from="1722971502710" duration="11629000" />
+      <workItem from="1723022227421" duration="22830000" />
+      <workItem from="1723147390741" duration="11214000" />
+      <workItem from="1723199196239" duration="107000" />
+      <workItem from="1723199306612" duration="5674000" />
+      <workItem from="1723208754911" duration="77000" />
+      <workItem from="1723208834541" duration="168000" />
+      <workItem from="1723209007136" duration="19803000" />
+      <workItem from="1723330311794" duration="179000" />
+      <workItem from="1723332171098" duration="43197000" />
+    </task>
+    <task id="LOCAL-00004" summary="package refactored">
+      <option name="closed" value="true" />
+      <created>1722514308175</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722514308175</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Moved to JDK 21">
+      <option name="closed" value="true" />
+      <created>1722516482997</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1722516482997</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Removed extra dependencies">
+      <option name="closed" value="true" />
+      <created>1722522552016</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722522552016</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Removed Discovery and IconMaster dependencies">
+      <option name="closed" value="true" />
+      <created>1722523511338</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722523511338</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Removed HTML/CSS/JS for old discovery phase">
+      <option name="closed" value="true" />
+      <created>1722523720753</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722523720753</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Discovery implemented.">
+      <option name="closed" value="true" />
+      <created>1722596749063</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1722596749064</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Initial Auto-Discovery added">
+      <option name="closed" value="true" />
+      <created>1722609986299</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1722609986299</updated>
+    </task>
+    <task id="LOCAL-00011" summary="setpoints for temparatures Auto-Discovery added">
+      <option name="closed" value="true" />
+      <created>1722615814023</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1722615814023</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added test code for Hexa-code">
+      <option name="closed" value="true" />
+      <created>1722682615252</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722682615252</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Optimized naming structure">
+      <option name="closed" value="true" />
+      <created>1722688127288</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1722688127288</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added all sensors/switches/selects">
+      <option name="closed" value="true" />
+      <created>1722728845603</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1722728845603</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added sensors and names refactored">
+      <option name="closed" value="true" />
+      <created>1722866210662</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1722866210662</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fixes">
+      <option name="closed" value="true" />
+      <created>1722874600646</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1722874600646</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added write channel through mediator">
+      <option name="closed" value="true" />
+      <created>1722895733349</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1722895733349</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Climate component is fully functional">
+      <option name="closed" value="true" />
+      <created>1722952700335</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1722952700335</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fixed maven console build and upgraded to SDK 22">
+      <option name="closed" value="true" />
+      <created>1722975535256</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1722975535256</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added shared jar (includes all the dependencies into output jar)&#10;Added example build / run / setup scripts.">
+      <option name="closed" value="true" />
+      <created>1722978001145</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1722978001145</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added github workflow for releases.">
+      <option name="closed" value="true" />
+      <created>1722978254853</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1722978254853</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added github workflow for releases.">
+      <option name="closed" value="true" />
+      <created>1722979202177</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1722979202177</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added github workflow for releases.">
+      <option name="closed" value="true" />
+      <created>1722979512376</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1722979512376</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Update">
+      <option name="closed" value="true" />
+      <created>1722983563016</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1722983563016</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Update">
+      <option name="closed" value="true" />
+      <created>1722983779281</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1722983779281</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Update">
+      <option name="closed" value="true" />
+      <created>1722984115973</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1722984115973</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Update">
+      <option name="closed" value="true" />
+      <created>1722985371371</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1722985371371</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added warning sensors, refactoring sensors to binary_sensors">
+      <option name="closed" value="true" />
+      <created>1723049025717</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1723049025717</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added ScheduleManager and format conversion methods.">
+      <option name="closed" value="true" />
+      <created>1723057420968</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1723057420968</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Added schedule write side. Tested, works.">
+      <option name="closed" value="true" />
+      <created>1723147211300</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1723147211300</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Added validations&#10;- ranges null array&#10;- more than 5 ranges in array&#10;- single range not equal 4 symbols&#10;- range overlaps&#10;- range duplicates">
+      <option name="closed" value="true" />
+      <created>1723208548456</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1723208548456</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Minor changes.">
+      <option name="closed" value="true" />
+      <created>1723299381680</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1723299381680</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Added Docker and command parser.">
+      <option name="closed" value="true" />
+      <created>1723318805371</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1723318805371</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Renamed jar.">
+      <option name="closed" value="true" />
+      <created>1723330356901</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1723330356901</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Initial commit.">
+      <option name="closed" value="true" />
+      <created>1723332619227</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1723332619227</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Fixed github workflows.">
+      <option name="closed" value="true" />
+      <created>1723333134905</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1723333134905</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Dockerfile.">
+      <option name="closed" value="true" />
+      <created>1723333246663</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1723333246663</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Changes.">
+      <option name="closed" value="true" />
+      <created>1723333579263</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1723333579263</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Reactivated workflow.">
+      <option name="closed" value="true" />
+      <created>1723334195352</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1723334195352</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Workflow fix.">
+      <option name="closed" value="true" />
+      <created>1723334558013</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1723334558013</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Readme update.">
+      <option name="closed" value="true" />
+      <created>1723401566646</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1723401566647</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Readme update.">
+      <option name="closed" value="true" />
+      <created>1723406348912</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1723406348912</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Docker build updated (added MACOS platform).">
+      <option name="closed" value="true" />
+      <created>1723407826060</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1723407826060</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Update doc. Added reference to schedule card.">
+      <option name="closed" value="true" />
+      <created>1723414205549</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1723414205549</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Update doc. Added reference to schedule card.">
+      <option name="closed" value="true" />
+      <created>1723414225103</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1723414225103</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Updated doc.">
+      <option name="closed" value="true" />
+      <created>1723414837801</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1723414837801</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Updated docs. Removed tracing.">
+      <option name="closed" value="true" />
+      <created>1723503928383</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1723503928383</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Fixed bug in DiscoveryService.">
+      <option name="closed" value="true" />
+      <created>1723805144022</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1723805144022</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Added logging.">
+      <option name="closed" value="true" />
+      <created>1723806167149</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1723806167149</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Updated Discovery">
+      <option name="closed" value="true" />
+      <created>1723814448352</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1723814448352</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Updated Discovery">
+      <option name="closed" value="true" />
+      <created>1723816132520</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1723816132520</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Fixed bug with hardcoded peerId">
+      <option name="closed" value="true" />
+      <created>1723891399544</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1723891399544</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added shared jar (includes all the dependencies into output jar)&#10;Added example build / run / setup scripts." />
+    <MESSAGE value="Added github workflow for releases." />
+    <MESSAGE value="Update" />
+    <MESSAGE value="Added warning sensors, refactoring sensors to binary_sensors" />
+    <MESSAGE value="Added ScheduleManager and format conversion methods." />
+    <MESSAGE value="Added schedule write side. Tested, works." />
+    <MESSAGE value="Added validations&#10;- ranges null array&#10;- more than 5 ranges in array&#10;- single range not equal 4 symbols&#10;- range overlaps&#10;- range duplicates" />
+    <MESSAGE value="Minor changes." />
+    <MESSAGE value="Added Docker and command parser." />
+    <MESSAGE value="Renamed jar." />
+    <MESSAGE value="Initial commit." />
+    <MESSAGE value="Fixed github workflows." />
+    <MESSAGE value="Dockerfile." />
+    <MESSAGE value="Changes." />
+    <MESSAGE value="Reactivated workflow." />
+    <MESSAGE value="Workflow fix." />
+    <MESSAGE value="Readme update." />
+    <MESSAGE value="Docker build updated (added MACOS platform)." />
+    <MESSAGE value="Update doc. Added reference to schedule card." />
+    <MESSAGE value="Updated doc." />
+    <MESSAGE value="Updated docs. Removed tracing." />
+    <MESSAGE value="Fixed bug in DiscoveryService." />
+    <MESSAGE value="Added logging." />
+    <MESSAGE value="Updated Discovery" />
+    <MESSAGE value="Fixed bug with hardcoded peerId" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug with hardcoded peerId" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NoClassDefFoundError" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/openhab/core/bundles/org.openhab.core.thing/3.2.0/org.openhab.core.thing-3.2.0.jar!/org/openhab/core/thing/binding/BaseThingHandler.class</url>
+          <line>100</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/openhab/core/bundles/org.openhab.core.thing/3.2.0/org.openhab.core.thing-3.2.0.jar!/org/openhab/core/thing/binding/BaseThingHandler.class</url>
+          <line>143</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/binding/danfoss/internal/GridConnectionKeeper.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/io/github/sonic-amiga/opensdg_java/1.0.0/opensdg_java-1.0.0.jar!/io/github/sonic_amiga/opensdg/java/GridConnection.class</url>
+          <line>78</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/io/github/sonic-amiga/opensdg_java/1.0.0/opensdg_java-1.0.0.jar!/io/github/sonic_amiga/opensdg/java/PairingConnection.class</url>
+          <line>34</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/MockThingCallback.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/io/homeassistant/devi/mqtt/service/MockThing.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.lang.NoClassDefFoundError" memberName="backtrace" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="DanfossBindingConfig.get().userName" language="JAVA" />
+        <watch expression="sender.getClass()" language="JAVA" />
+        <watch expression="configMap.replace(&quot;peerId&quot;, entry.getValue());" language="JAVA" />
+        <watch expression="DanfossBindingConfig.get().privateKey" language="JAVA" />
+        <watch expression="configMap.put(&quot;privateKey&quot;, DanfossBindingConfig.get().privateKey)" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

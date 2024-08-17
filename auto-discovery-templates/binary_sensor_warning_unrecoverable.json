@@ -1,0 +1,18 @@
+{
+    "topic": "homeassistant/binary_sensor/${deviceSN}_binary_sensor_warning_unrecoverable/config",
+    "template": {
+        "state_topic": "devi/state/${deviceSN}/binary_sensor_warning_unrecoverable",
+        "device": {
+            "identifiers": [
+                "${deviceSN}"
+            ],
+            "manufacturer": "Danfoss",
+            "name": "DeviReg ${deviceSN}",
+            "model": "DeviReg Smart Thermostat"
+        },
+        "unique_id": "${deviceSN}_binary_sensor_warning_unrecoverable",
+        "object_id": "devi_binary_sensor_warning_unrecoverable_${deviceNumber}",
+        "name": "Warning unrecoverable",
+        "device_class": "problem"
+    }
+}

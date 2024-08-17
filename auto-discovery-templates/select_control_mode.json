@@ -1,0 +1,27 @@
+{
+  "topic": "homeassistant/select/${deviceSN}_select_control_mode/config",
+  "template": {
+    "state_topic": "devi/state/${deviceSN}/select_control_mode",
+    "command_topic": "devi/command/${deviceSN}/select_control_mode",
+    "device": {
+      "identifiers": [
+        "${deviceSN}"
+      ],
+      "manufacturer": "Danfoss",
+      "name": "DeviReg ${deviceSN}",
+      "model": "DeviReg Smart Thermostat"
+    },
+    "unique_id": "${deviceSN}_select_control_mode",
+    "object_id": "devi_select_control_mode_${deviceNumber}",
+    "name": "Control mode",
+    "force_update": true,
+    "options": [
+      "MANUAL",
+      "OVERRIDE",
+      "SCHEDULE",
+      "VACATION",
+      "PAUSE",
+      "OFF"
+    ]
+  }
+}

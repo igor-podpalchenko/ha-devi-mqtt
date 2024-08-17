@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="central" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="openhab-artifactory-snapshot" />
+      <option name="name" value="JFrog Artifactory Repository" />
+      <option name="url" value="https://openhab.jfrog.io/openhab/libs-snapshot" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="openhab" />
+      <option name="name" value="openhab" />
+      <option name="url" value="https://openhab.jfrog.io/openhab/libs-release/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="openhab-release" />
+      <option name="name" value="openHAB Release Repository" />
+      <option name="url" value="https://openhab.jfrog.io/openhab/libs-release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="openhab" />
+      <option name="name" value="openhab" />
+      <option name="url" value="https://openhab.jfrog.io/ui/native/libs-release/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="openhab-snapshot" />
+      <option name="name" value="openHAB Snapshot Repository" />
+      <option name="url" value="https://openhab.jfrog.io/openhab/libs-snapshot" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="eclipse" />
+      <option name="name" value="eclipse" />
+      <option name="url" value="https://repo.eclipse.org/content/repositories/jdt/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="openhab-artifactory-release" />
+      <option name="name" value="JFrog Artifactory Repository" />
+      <option name="url" value="https://openhab.jfrog.io/openhab/libs-release" />
+    </remote-repository>
+  </component>
+</project>

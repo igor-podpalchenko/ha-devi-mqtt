@@ -1,0 +1,20 @@
+{
+  "topic": "homeassistant/switch/${deviceSN}_switch_min_floor_enable/config",
+  "template": {
+    "state_topic": "devi/state/${deviceSN}/switch_min_floor_enable",
+    "command_topic":"devi/command/${deviceSN}/switch_min_floor_enable",
+    "device": {
+      "identifiers": [
+        "${deviceSN}"
+      ],
+      "manufacturer": "Danfoss",
+      "name": "DeviReg ${deviceSN}",
+      "model": "DeviReg Smart Thermostat"
+    },
+    "unique_id": "${deviceSN}_switch_min_floor_enable",
+    "object_id": "devi_switch_min_floor_enable_${deviceNumber}",
+    "name": "Switch Min Floor Enabled",
+    "icon":"mdi:thermometer-chevron-down",
+    "device_class": "switch"
+  }
+}

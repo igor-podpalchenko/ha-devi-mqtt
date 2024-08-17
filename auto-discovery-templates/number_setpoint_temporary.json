@@ -1,0 +1,25 @@
+{
+  "topic": "homeassistant/number/${deviceSN}_setpoint_temporary/config",
+  "template": {
+    "state_topic": "devi/state/${deviceSN}/setpoint_temporary",
+    "command_topic": "devi/command/${deviceSN}/setpoint_temporary",
+    "device": {
+      "identifiers": [
+        "${deviceSN}"
+      ],
+      "manufacturer": "Danfoss",
+      "name": "DeviReg ${deviceSN}",
+      "model": "DeviReg Smart Thermostat"
+    },
+    "unique_id": "${deviceSN}_setpoint_temporary",
+    "object_id": "devi_setpoint_temporary_${deviceNumber}",
+    "name": "T Temporary",
+    "device_class": "temperature",
+    "state_class": "measurement",
+    "force_update": true,
+    "step": "0.5",
+    "min":3,
+    "max":40,
+    "unit_of_measurement":"C"
+  }
+}
