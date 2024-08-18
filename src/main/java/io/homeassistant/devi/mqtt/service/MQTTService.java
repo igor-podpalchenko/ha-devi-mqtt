@@ -15,6 +15,8 @@ public class MQTTService {
 
     private boolean reconnectScheduled = false;
 
+    private MqttConnectOptions options;
+
     public MQTTService(String broker, String port, String username, String password) {
         this.broker = "tcp://" + broker + ":" + port;
         this.username = username;
@@ -46,7 +48,7 @@ public class MQTTService {
     public void start() {
         try {
             client = new MqttClient(broker, MqttClient.generateClientId(), new MemoryPersistence());
-            MqttConnectOptions options = new MqttConnectOptions();
+            options = new MqttConnectOptions();
             options.setCleanSession(true);
             options.setUserName(username);
             options.setPassword(password.toCharArray());
@@ -116,7 +118,7 @@ public class MQTTService {
 
     private void connect() {
         try {
-            client.connect();
+            client.connect(options);
             System.out.println("Connected to broker");
             reconnectScheduled = false; // Reset reconnect flag on successful connection
         } catch (MqttException e) {
