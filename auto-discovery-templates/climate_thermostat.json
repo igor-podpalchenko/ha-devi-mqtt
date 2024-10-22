@@ -8,8 +8,8 @@
 
     "current_temperature_topic": "devi/state/${deviceSN}/temperature_floor",
 
-    "temperature_state_topic": "devi/state/${deviceSN}/setpoint_temporary",
-    "temperature_command_topic": "devi/command/${deviceSN}/setpoint_temporary",
+    "temperature_state_topic": "devi/state/${deviceSN}/temperature_target",
+    "temperature_command_topic": "devi/command/${deviceSN}/set_temperature_target",
 
     "preset_mode_state_topic": "devi/state/${deviceSN}/select_control_mode",
     "preset_mode_command_topic": "devi/command/${deviceSN}/thermostat_preset",
@@ -26,7 +26,7 @@
 
     "mode_state_template": "{% set values = { 'off':'off', 'on':'heat'} %}\n  {{ values[value.lower()] if value.lower() in values.keys() else 'off' }}",
 
-    "icon": "hass:thermometer-bluetooth",
+    "icon": "mdi:heating-coil",
     "device": {
       "identifiers": [
         "${deviceSN}"
