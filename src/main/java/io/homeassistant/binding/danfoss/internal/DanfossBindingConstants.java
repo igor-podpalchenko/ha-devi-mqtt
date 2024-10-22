@@ -82,7 +82,8 @@ public class DanfossBindingConstants {
     public static final String CHANNEL_THERMOSTAT_PRESET = "thermostat_preset";
     public static final String CHANNEL_TARGET_TEMP       = "temperature_target";
     public static final String CHANNEL_SET_TARGET_TEMP   = "set_temperature_target";
-
+    public static final String CHANNEL_CURRENT_TEMP      = "temperature_current";  // floor or room
+	
     // Icon specific
     public static final String CHANNEL_MANUAL_MODE = "manual_mode";
     public static final String CHANNEL_BATTERY = "battery";
