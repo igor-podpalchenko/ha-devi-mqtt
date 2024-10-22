@@ -593,7 +593,7 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
                 updateProperty("sys_connection_count", String.valueOf(pkt.getByte()));
                 break;
             case WIFI_CONNECTED_STRENGTH:
-                updateProperty("sys_wifi_strength", String.valueOf(pkt.getShort()) + " db");
+                updateProperty("sys_wifi_strength", String.valueOf(pkt.getShort()));
                 break;
             case WIFI_CONNECT_SSID:
                 updateProperty("sys_wifi_connect_ssid", pkt.getString());
