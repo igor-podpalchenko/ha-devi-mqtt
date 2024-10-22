@@ -12,9 +12,6 @@
         },
         "unique_id": "id_${deviceSN}_sys_run_time",
         "object_id": "devireg_${deviceSN}_sys_run_time",
-        "state_class": "measurement",
-        "device_class": "duration",
-        "unit_of_measurement": "s",
         "name": "Sys run time"
     }
 }
