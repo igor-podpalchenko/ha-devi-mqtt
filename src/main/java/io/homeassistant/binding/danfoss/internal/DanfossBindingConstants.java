@@ -37,6 +37,8 @@ public class DanfossBindingConstants {
     public static final String CHANNEL_SETPOINT_MAX_FLOOR = "setpoint_max_floor";
     public static final String CHANNEL_SETPOINT_WARNING = "setpoint_warning";
 
+    public static final String[] TEMP_SETPOINTS = { CHANNEL_SETPOINT_COMFORT, CHANNEL_SETPOINT_ECONOMY, CHANNEL_SETPOINT_MANUAL,
+            CHANNEL_SETPOINT_TEMPORARY, CHANNEL_SETPOINT_AWAY, CHANNEL_SETPOINT_ANTIFREEZE };
 
     // Select
     public static final String CHANNEL_CONTROL_MODE = "select_control_mode";
