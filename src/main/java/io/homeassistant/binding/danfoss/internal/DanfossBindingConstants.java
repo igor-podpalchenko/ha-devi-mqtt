@@ -76,9 +76,10 @@ public class DanfossBindingConstants {
 
 
     // Virtual / computed states
-    public static final String CHANNEL_ACTIVE_SETPOINT = "sensor_active_setpoint";
-    public static final String CHANNEL_TARGET_TEMP     = "temperature_target";
+    public static final String CHANNEL_ACTIVE_SETPOINT   = "sensor_active_setpoint";
     public static final String CHANNEL_THERMOSTAT_PRESET = "thermostat_preset";
+    public static final String CHANNEL_TARGET_TEMP       = "temperature_target";
+    public static final String CHANNEL_SET_TARGET_TEMP   = "set_temperature_target";
 
     // Icon specific
     public static final String CHANNEL_MANUAL_MODE = "manual_mode";
