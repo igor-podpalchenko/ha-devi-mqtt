@@ -220,6 +220,7 @@ public class DiscoveryService {
                     Map<String, String> roomMap = new HashMap<>();
                     roomMap.put("name", room.roomName);
                     roomMap.put("devicePeerID", room.peerId);
+                    roomMap.put("serialNumber", null);
                     roomsList.add(roomMap);
 
                 }
