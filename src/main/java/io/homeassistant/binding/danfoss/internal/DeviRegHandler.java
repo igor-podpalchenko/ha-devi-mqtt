@@ -396,7 +396,7 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
                     case "OVERRIDE":
                         return CHANNEL_SETPOINT_TEMPORARY;
                     case "AWAY":
-                        return CHANNEL_SETPOINT_AWAY;
+                        return CHANNEL_SETPOINT_ECONOMY;
                     case "HOME":
                         return CHANNEL_SETPOINT_COMFORT;
                     default:
