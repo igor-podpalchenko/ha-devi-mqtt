@@ -82,6 +82,14 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
                 }
                 
                 break;
+            case CHANNEL_SET_TARGET_TEMP:
+                if (Arrays.asList(TEMP_SETPOINTS).contains(currentSetpointCh)) {
+                    ChannelUID selectChannelUID = new ChannelUID(new ThingUID("cmd", "danfoss", "devismart"), currentSetpointCh);
+                    handleCommand(selectChannelUID, new StringType(payload));
+                }
+                
+                break;
+                
             case CHANNEL_WEEK_SCHEDULE:
 
                 ScheduleManager writeScheduleManager = new ScheduleManager();
