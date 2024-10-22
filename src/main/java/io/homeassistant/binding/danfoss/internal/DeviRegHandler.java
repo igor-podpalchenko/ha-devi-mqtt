@@ -72,10 +72,14 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
                 handleCommand(ch, new StringType(payload));
                 break;
             case CHANNEL_THERMOSTAT_PRESET:
+                ChannelUID selectChannelUID = new ChannelUID(new ThingUID("cmd", "danfoss", "devismart"), CHANNEL_CONTROL_MODE);
+                
                 if(payload.equals("SET OVERRIDE")) {
-                    ChannelUID selectChannelUID = new ChannelUID(new ThingUID("cmd", "danfoss", "devismart"), CHANNEL_CONTROL_MODE);
                     handleCommand(selectChannelUID, new StringType("OVERRIDE"));
+                } else {
+                    handleCommand(selectChannelUID, new StringType(payload));
                 }
+                
                 break;
             case CHANNEL_WEEK_SCHEDULE:
 
