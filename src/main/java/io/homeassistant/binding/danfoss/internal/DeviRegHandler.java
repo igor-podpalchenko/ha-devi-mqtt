@@ -52,6 +52,7 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
     private final Logger logger = LoggerFactory.getLogger(DeviRegHandler.class);
     private SDGPeerConnector connHandler = new SDGPeerConnector(this, scheduler);
     private byte currentMode = -1;
+    private String currentSetpointCh = "";
     private Dominion.@Nullable Version firmwareVer;
     private int firmwareBuild = -1;
 
@@ -437,9 +438,11 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
 
             String autoSetpointChannel = selectSetpointChannelByModeAndState(mode, state);
             updateProperty(CHANNEL_ACTIVE_SETPOINT, autoSetpointChannel);
+            currentSetpointCh = autoSetpointChannel;
         } else {
             mode = "";
             state = "";
+            currentSetpointCh = "";
         }
 
         logger.trace("Received {} = {}", CHANNEL_CONTROL_STATE, state);
