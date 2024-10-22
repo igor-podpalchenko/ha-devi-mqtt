@@ -608,7 +608,7 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
                 updateProperty("sys_relay_on_count", String.valueOf(pkt.getInt()));
                 break;
             case SYSTEM_RUNTIME_INFO_SYSTEM_RUNTIME:
-                updateProperty("sys_run_time", formatDuration(pkt.getInt()));
+                updateProperty("sys_run_time", formatDurationS(pkt.getInt()));
                 break;
             case SYSTEM_INFO_BREAKOUT:
                 updateProperty(CHANNEL_BREAKOUT, pkt.getBoolean() ? "ON" : "OFF");
@@ -631,6 +631,13 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
 
     // Convert duration in seconds to (years, days, hours, minutes),
     // just like the original application.
+
+
+    private String formatDurationS(int seconds) {
+        long d = Integer.toUnsignedLong(seconds);
+        return String.valueOf(d);
+    }
+    
     private String formatDuration(int seconds) {
         long d = Integer.toUnsignedLong(seconds);
         long years = d / 31536000;
