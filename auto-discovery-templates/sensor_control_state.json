@@ -10,20 +10,9 @@
       "name": "DeviReg ${deviceSN}",
       "model": "DeviReg Smart Thermostat"
     },
-    "unique_id": "${deviceSN}_control_state",
-    "object_id": "devi_control_state_${deviceNumber}",
+    "unique_id": "id_${deviceSN}_control_state",
+    "object_id": "devireg_${deviceSN}_control_state",
     "name": "# Control state",
-    "force_update": true,
-    "options": [
-      "CONFIGURING",
-      "MANUAL",
-      "HOME",
-      "AWAY",
-      "VACATION",
-      "FATAL",
-      "PAUSE",
-      "OFF",
-      "OVERRIDE"
-    ]
+    "force_update": true
   }
 }

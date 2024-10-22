@@ -10,8 +10,11 @@
             "name": "DeviReg ${deviceSN}",
             "model": "DeviReg Smart Thermostat"
         },
-        "unique_id": "${deviceSN}_on_time_7_days_kwh",
-        "object_id": "devi_on_time_7_days_kwh_${deviceNumber}",
-        "name": "On time 7 days kwh"
+        "unique_id": "id_${deviceSN}_on_time_7_days_kwh",
+        "object_id": "devireg_${deviceSN}_on_time_7_days_kwh",
+        "name": "On time 7 days kwh",
+        "unit_of_measurement": "kwh",
+        "device_class": "energy",
+        "state_class": "total_increasing"
     }
 }

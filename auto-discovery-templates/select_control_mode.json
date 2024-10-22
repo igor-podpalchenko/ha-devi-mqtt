@@ -11,8 +11,8 @@
       "name": "DeviReg ${deviceSN}",
       "model": "DeviReg Smart Thermostat"
     },
-    "unique_id": "${deviceSN}_select_control_mode",
-    "object_id": "devi_select_control_mode_${deviceNumber}",
+    "unique_id": "id_${deviceSN}_select_control_mode",
+    "object_id": "devireg_${deviceSN}_select_control_mode",
     "name": "Control mode",
     "force_update": true,
     "options": [

@@ -3,8 +3,8 @@
   "template": {
     "name": "DeviReg Smart Thermostat",
     "device_class": "climate",
-    "unique_id": "${deviceSN}_devi_thermostat",
-    "object_id": "devi_thermostat_${deviceNumber}",
+    "unique_id": "id_${deviceSN}_devi_thermostat",
+    "object_id": "devireg_${deviceSN}_thermostat",
 
     "current_temperature_topic": "devi/state/${deviceSN}/temperature_floor",
 

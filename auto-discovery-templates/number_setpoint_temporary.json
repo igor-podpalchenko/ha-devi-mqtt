@@ -11,8 +11,8 @@
       "name": "DeviReg ${deviceSN}",
       "model": "DeviReg Smart Thermostat"
     },
-    "unique_id": "${deviceSN}_setpoint_temporary",
-    "object_id": "devi_setpoint_temporary_${deviceNumber}",
+    "unique_id": "id_${deviceSN}_setpoint_temporary",
+    "object_id": "devireg_${deviceSN}_setpoint_temporary",
     "name": "T Temporary",
     "device_class": "temperature",
     "state_class": "measurement",

@@ -11,8 +11,8 @@
       "name": "DeviReg ${deviceSN}",
       "model": "DeviReg Smart Thermostat"
     },
-    "unique_id": "${deviceSN}_setpoint_min_floor",
-    "object_id": "devi_setpoint_min_floor_${deviceNumber}",
+    "unique_id": "id_${deviceSN}_setpoint_min_floor",
+    "object_id": "devireg_${deviceSN}_setpoint_min_floor",
     "name": "T Min Floor",
     "device_class": "temperature",
     "state_class": "measurement",

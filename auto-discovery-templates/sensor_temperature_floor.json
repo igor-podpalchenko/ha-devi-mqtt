@@ -10,8 +10,8 @@
       "name": "DeviReg ${deviceSN}",
       "model": "DeviReg Smart Thermostat"
     },
-    "unique_id": "${deviceSN}_temperature_floor",
-    "object_id": "devi_temperature_floor_${deviceNumber}",
+    "unique_id": "id_${deviceSN}_temperature_floor",
+    "object_id": "devireg_${deviceSN}_temperature_floor",
     "name": "# T Floor",
     "unit_of_measurement": "C",
     "device_class": "temperature",

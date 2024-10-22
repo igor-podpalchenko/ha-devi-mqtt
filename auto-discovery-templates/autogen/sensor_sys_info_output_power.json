@@ -10,8 +10,8 @@
             "name": "DeviReg ${deviceSN}",
             "model": "DeviReg Smart Thermostat"
         },
-        "unique_id": "${deviceSN}_sys_info_output_power",
-        "object_id": "devi_sys_info_output_power_${deviceNumber}",
+        "unique_id": "id_${deviceSN}_sys_info_output_power",
+        "object_id": "devireg_${deviceSN}_sys_info_output_power",
         "name": "Sys info output power"
     }
 }

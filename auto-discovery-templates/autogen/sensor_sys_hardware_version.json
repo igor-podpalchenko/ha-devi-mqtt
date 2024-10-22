@@ -10,8 +10,8 @@
             "name": "DeviReg ${deviceSN}",
             "model": "DeviReg Smart Thermostat"
         },
-        "unique_id": "${deviceSN}_sys_hardware_version",
-        "object_id": "devi_sys_hardware_version_${deviceNumber}",
+        "unique_id": "id_${deviceSN}_sys_hardware_version",
+        "object_id": "devireg_${deviceSN}_sys_hardware_version",
         "name": "Sys hardware version"
     }
 }
