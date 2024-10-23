@@ -64,10 +64,12 @@ public class DanfossBindingConstants {
     public static final String CHANNEL_ON_TIME_30_DAYS_KWH = "on_time_30_days_kwh";
     public static final String CHANNEL_ON_TIME_TOTAL_KWH = "on_time_total_kwh";
     public static final String CHANNEL_WEEK_SCHEDULE = "sensor_week_schedule";
-
+    public static final String CHANNEL_DEVICE_CONNECTED_STATUS  = "sensor_device_connected";
+	
     // Binary sensors
     public static final String CHANNEL_HEATING_STATE = "binary_sensor_heating_state";
     public static final String CHANNEL_MDG_CONNECTED_TO_CLOUD = "binary_sensor_cloud_connected";
+	public static final String CHANNEL_DEVICE_CONNECTED = "binary_sensor_device_connected";
     public static final String CHANNEL_WINDOW_OPEN = "binary_sensor_window_open";
 
     public static final String CHANNEL_BREAKOUT = "binary_sensor_warning_breakout";

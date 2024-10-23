@@ -734,5 +734,8 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
     public void reportStatus(@NonNull ThingStatus status, @NonNull ThingStatusDetail statusDetail,
             @Nullable String description) {
         updateStatus(status, statusDetail, description);
+		
+		updateState(CHANNEL_DEVICE_CONNECTED, OnOffType.from(status==ThingStatus.ONLINE));
+		updateState(CHANNEL_DEVICE_CONNECTED_STATUS, new StringType(String.format("%s;%s;%s", status.toString(), statusDetail.toString(), description)) );
     }
 }
