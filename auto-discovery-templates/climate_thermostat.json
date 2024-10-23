@@ -6,7 +6,7 @@
     "unique_id": "id_${deviceSN}_devi_thermostat",
     "object_id": "devireg_${deviceSN}_thermostat",
 
-    "current_temperature_topic": "devi/state/${deviceSN}/temperature_floor",
+    "current_temperature_topic": "devi/state/${deviceSN}/temperature_current",
 
     "temperature_state_topic": "devi/state/${deviceSN}/temperature_target",
     "temperature_command_topic": "devi/command/${deviceSN}/set_temperature_target",

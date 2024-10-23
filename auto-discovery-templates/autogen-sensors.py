@@ -29,7 +29,6 @@ topics = [
 
 topics_units = {
     "sys_wifi_strength": "dBm",
-#    "sys_run_time": "s",
     "on_time_30_days": "s",
     "on_time_7_days": "s",
     "on_time_total": "s",
@@ -81,7 +80,10 @@ for topic in topics:
         elif uofm=='dBm':
             config["template"]["device_class"] = 'signal_strength'
             config["template"]["state_class"]  = 'measurement'				
-		
+        elif uofm=='s':
+            config["template"]["device_class"] = 'duration'
+            config["template"]["state_class"]  = 'measurement'	
+			
     output_file = f"{output_dir}/sensor_{topic}.json"
     with open(output_file, "w") as file:
         json.dump(config, file, indent=4)
