@@ -12,7 +12,7 @@
     },
     "unique_id": "id_${deviceSN}_active_setpoint",
     "object_id": "devireg_${deviceSN}_active_setpoint",
-    "name": "# Active setpoint",
+    "name": "* Active setpoint",
     "force_update": true
   }
 }

@@ -1,0 +1,18 @@
+{
+  "topic": "homeassistant/sensor/${deviceSN}_sensor_device_connected/config",
+  "template": {
+    "state_topic": "devi/state/${deviceSN}/sensor_device_connected",
+    "device": {
+      "identifiers": [
+        "${deviceSN}"
+      ],
+      "manufacturer": "Danfoss",
+      "name": "DeviReg ${deviceSN}",
+      "model": "DeviReg Smart Thermostat"
+    },
+    "unique_id": "id_${deviceSN}_sensor_device_connected",
+    "object_id": "devireg_${deviceSN}_device_connected",
+    "name": "* Connection Status",
+    "force_update": true
+  }
+}

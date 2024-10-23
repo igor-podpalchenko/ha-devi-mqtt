@@ -12,7 +12,7 @@
     },
     "unique_id": "id_${deviceSN}_temperature_target",
     "object_id": "devireg_${deviceSN}_temperature_target",
-    "name": "# T Target",
+    "name": "* T Target",
     "unit_of_measurement": "C",
     "device_class": "temperature",
     "state_class": "measurement",

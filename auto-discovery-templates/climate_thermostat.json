@@ -6,6 +6,10 @@
     "unique_id": "id_${deviceSN}_devi_thermostat",
     "object_id": "devireg_${deviceSN}_thermostat",
 
+	"availability_topic": "devi/state/${deviceSN}/binary_sensor_device_connected",
+	"payload_available": "ON",
+	"payload_not_available": "OFF",
+	
     "current_temperature_topic": "devi/state/${deviceSN}/temperature_current",
 
     "temperature_state_topic": "devi/state/${deviceSN}/temperature_target",
