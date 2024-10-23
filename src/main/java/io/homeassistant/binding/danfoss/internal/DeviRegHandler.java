@@ -20,6 +20,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Map;
+import java.util.Arrays;
+import java.util.List;
 
 import io.homeassistant.devi.mqtt.service.ScheduleManager;
 import org.eclipse.jdt.annotation.NonNull;
@@ -53,6 +55,8 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
     private SDGPeerConnector connHandler = new SDGPeerConnector(this, scheduler);
     private byte currentMode = -1;
     private String currentSetpointCh = "";
+	private double currentTargetTemp = 0;
+	private byte current_regulation_type = 1; // floor
     private Dominion.@Nullable Version firmwareVer;
     private int firmwareBuild = -1;
 
@@ -80,12 +84,15 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
                 } else {
                     handleCommand(selectChannelUID, new StringType(payload));
                 }
-                
+				
+
                 break;
             case CHANNEL_SET_TARGET_TEMP:
+				// logger.info(String.format("CHANNEL_SET_TARGET_TEMP currentSetpointCh: %s", currentSetpointCh));
+				
                 if (Arrays.asList(TEMP_SETPOINTS).contains(currentSetpointCh)) {
-                    ChannelUID selectChannelUID = new ChannelUID(new ThingUID("cmd", "danfoss", "devismart"), currentSetpointCh);
-                    handleCommand(selectChannelUID, new StringType(payload));
+                    ChannelUID tempChannelUID = new ChannelUID(new ThingUID("cmd", "danfoss", "devismart"), currentSetpointCh);
+                    handleCommand(tempChannelUID, new DecimalType(payload));
                 }
                 
                 break;
@@ -375,11 +382,28 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
 
     private void reportTemperature(String ch, double temp) {
         logger.trace("Received {} = {}", ch, temp);
-
+		
+		// Update temp target for HA climate entity
+		if (ch.equals(currentSetpointCh)) {
+			if (currentTargetTemp != temp) {
+				currentTargetTemp = temp;
+				updateState(CHANNEL_TARGET_TEMP, new DecimalType(currentTargetTemp));
+			}
+		};
+		
+		
         //updateState(ch, new QuantityType<Temperature>(new DecimalType(temp), SIUnits.CELSIUS));
         double roundedTemp = temp; //Math.round(temp * 10.0) / 10.0;
         updateState(ch, new DecimalType(roundedTemp));
 
+		// room = 0
+		if (current_regulation_type==0) {
+			if (ch.equals(CHANNEL_TEMPERATURE_ROOM))
+				updateState(CHANNEL_CURRENT_TEMP, new DecimalType(roundedTemp));
+		} else {
+			if (ch.equals(CHANNEL_TEMPERATURE_FLOOR))
+				updateState(CHANNEL_CURRENT_TEMP, new DecimalType(roundedTemp));
+		};
     }
 
     private void reportSwitch(String ch, boolean on) {
@@ -447,6 +471,16 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
             String autoSetpointChannel = selectSetpointChannelByModeAndState(mode, state);
             updateProperty(CHANNEL_ACTIVE_SETPOINT, autoSetpointChannel);
             currentSetpointCh = autoSetpointChannel;
+			
+			if (Arrays.asList(TEMP_SETPOINTS).contains(currentSetpointCh)) {
+				// Requesting refresh, thermostat will respond latest value
+				ChannelUID refreshTemp = new ChannelUID(new ThingUID("cmd", "danfoss", "devismart"), currentSetpointCh);
+				handleCommand(refreshTemp, RefreshType.REFRESH);
+			} else {
+				// currentSetpointCh = OFF or UNKNOWN
+				currentTargetTemp = 0;
+				updateState(CHANNEL_TARGET_TEMP, new DecimalType(0));
+			}
         } else {
             mode = "";
             state = "";
@@ -630,6 +664,7 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
                 break;
             case SYSTEM_WIZARD_INFO:
                 WizardInfo config = pkt.getWizardInfo();
+				current_regulation_type = config.regulationType;
                 updateProperty("sys_info_sensor_type", numToString(SensorTypes, config.sensorType));
                 updateProperty("sys_info_regulation_type", numToString(RegulationTypes, config.regulationType));
                 updateProperty("sys_info_floor_type", numToString(FloorTypes, config.flooringType));
