@@ -32,9 +32,9 @@ topics_units = {
     "on_time_30_days": "s",
     "on_time_7_days": "s",
     "on_time_total": "s",
-    "on_time_30_days_kwh":"kwh",
-    "on_time_7_days_kwh":"kwh",
-    "on_time_total_kwh": "kwh"
+    "on_time_30_days_kwh":"kWh",
+    "on_time_7_days_kwh":"kWh",
+    "on_time_total_kwh": "kWh"
 }
 
 
