@@ -13,7 +13,7 @@
         "unique_id": "id_${deviceSN}_on_time_30_days_kwh",
         "object_id": "devireg_${deviceSN}_on_time_30_days_kwh",
         "name": "On time 30 days kwh",
-        "unit_of_measurement": "kwh",
+        "unit_of_measurement": "kWh",
         "device_class": "energy",
         "state_class": "total_increasing"
     }
