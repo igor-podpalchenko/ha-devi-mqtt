@@ -206,7 +206,7 @@ public class Dominion {
             ret.regulationType = m_Buffer.get();
             ret.flooringType = m_Buffer.get();
             ret.roomType = m_Buffer.get();
-            ret.outputPower = m_Buffer.get() * DeviSmart.WizardInfo.POWER_SCALE;
+            ret.outputPower = Byte.toUnsignedInt(m_Buffer.get()) * DeviSmart.WizardInfo.POWER_SCALE;
             // 6'th value is always set to 1, we don't know what it is.
 
             return ret;
