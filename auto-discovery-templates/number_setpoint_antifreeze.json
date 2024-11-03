@@ -11,8 +11,8 @@
       "name": "DeviReg ${deviceSN}",
       "model": "DeviReg Smart Thermostat"
     },
-    "unique_id": "${deviceSN}_setpoint_antifreeze",
-    "object_id": "devi_setpoint_antifreeze_${deviceNumber}",
+    "unique_id": "id_${deviceSN}_setpoint_antifreeze",
+    "object_id": "devireg_${deviceSN}_setpoint_antifreeze",
     "name": "T Antifreeze",
     "device_class": "temperature",
     "state_class": "measurement",

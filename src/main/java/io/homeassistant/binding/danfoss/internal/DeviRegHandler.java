@@ -20,6 +20,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Map;
+import java.util.Arrays;
+import java.util.List;
 
 import io.homeassistant.devi.mqtt.service.ScheduleManager;
 import org.eclipse.jdt.annotation.NonNull;
@@ -52,6 +54,9 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
     private final Logger logger = LoggerFactory.getLogger(DeviRegHandler.class);
     private SDGPeerConnector connHandler = new SDGPeerConnector(this, scheduler);
     private byte currentMode = -1;
+    private String currentSetpointCh = "";
+	private double currentTargetTemp = 0;
+	private byte current_regulation_type = 1; // floor
     private Dominion.@Nullable Version firmwareVer;
     private int firmwareBuild = -1;
 
@@ -72,11 +77,26 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
                 handleCommand(ch, new StringType(payload));
                 break;
             case CHANNEL_THERMOSTAT_PRESET:
+                ChannelUID selectChannelUID = new ChannelUID(new ThingUID("cmd", "danfoss", "devismart"), CHANNEL_CONTROL_MODE);
+                
                 if(payload.equals("SET OVERRIDE")) {
-                    ChannelUID selectChannelUID = new ChannelUID(new ThingUID("cmd", "danfoss", "devismart"), CHANNEL_CONTROL_MODE);
                     handleCommand(selectChannelUID, new StringType("OVERRIDE"));
+                } else {
+                    handleCommand(selectChannelUID, new StringType(payload));
                 }
+				
+
                 break;
+            case CHANNEL_SET_TARGET_TEMP:
+				// logger.info(String.format("CHANNEL_SET_TARGET_TEMP currentSetpointCh: %s", currentSetpointCh));
+				
+                if (Arrays.asList(TEMP_SETPOINTS).contains(currentSetpointCh)) {
+                    ChannelUID tempChannelUID = new ChannelUID(new ThingUID("cmd", "danfoss", "devismart"), currentSetpointCh);
+                    handleCommand(tempChannelUID, new DecimalType(payload));
+                }
+                
+                break;
+                
             case CHANNEL_WEEK_SCHEDULE:
 
                 ScheduleManager writeScheduleManager = new ScheduleManager();
@@ -362,11 +382,28 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
 
     private void reportTemperature(String ch, double temp) {
         logger.trace("Received {} = {}", ch, temp);
-
+		
+		// Update temp target for HA climate entity
+		if (ch.equals(currentSetpointCh)) {
+			if (currentTargetTemp != temp) {
+				currentTargetTemp = temp;
+				updateState(CHANNEL_TARGET_TEMP, new DecimalType(currentTargetTemp));
+			}
+		};
+		
+		
         //updateState(ch, new QuantityType<Temperature>(new DecimalType(temp), SIUnits.CELSIUS));
         double roundedTemp = temp; //Math.round(temp * 10.0) / 10.0;
         updateState(ch, new DecimalType(roundedTemp));
 
+		// room = 0
+		if (current_regulation_type==0) {
+			if (ch.equals(CHANNEL_TEMPERATURE_ROOM))
+				updateState(CHANNEL_CURRENT_TEMP, new DecimalType(roundedTemp));
+		} else {
+			if (ch.equals(CHANNEL_TEMPERATURE_FLOOR))
+				updateState(CHANNEL_CURRENT_TEMP, new DecimalType(roundedTemp));
+		};
     }
 
     private void reportSwitch(String ch, boolean on) {
@@ -396,7 +433,7 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
                     case "OVERRIDE":
                         return CHANNEL_SETPOINT_TEMPORARY;
                     case "AWAY":
-                        return CHANNEL_SETPOINT_AWAY;
+                        return CHANNEL_SETPOINT_ECONOMY;
                     case "HOME":
                         return CHANNEL_SETPOINT_COMFORT;
                     default:
@@ -433,9 +470,21 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
 
             String autoSetpointChannel = selectSetpointChannelByModeAndState(mode, state);
             updateProperty(CHANNEL_ACTIVE_SETPOINT, autoSetpointChannel);
+            currentSetpointCh = autoSetpointChannel;
+			
+			if (Arrays.asList(TEMP_SETPOINTS).contains(currentSetpointCh)) {
+				// Requesting refresh, thermostat will respond latest value
+				ChannelUID refreshTemp = new ChannelUID(new ThingUID("cmd", "danfoss", "devismart"), currentSetpointCh);
+				handleCommand(refreshTemp, RefreshType.REFRESH);
+			} else {
+				// currentSetpointCh = OFF or UNKNOWN
+				currentTargetTemp = 0;
+				updateState(CHANNEL_TARGET_TEMP, new DecimalType(0));
+			}
         } else {
             mode = "";
             state = "";
+            currentSetpointCh = "";
         }
 
         logger.trace("Received {} = {}", CHANNEL_CONTROL_STATE, state);
@@ -593,7 +642,7 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
                 updateProperty("sys_connection_count", String.valueOf(pkt.getByte()));
                 break;
             case WIFI_CONNECTED_STRENGTH:
-                updateProperty("sys_wifi_strength", String.valueOf(pkt.getShort()) + " db");
+                updateProperty("sys_wifi_strength", String.valueOf(pkt.getShort()));
                 break;
             case WIFI_CONNECT_SSID:
                 updateProperty("sys_wifi_connect_ssid", pkt.getString());
@@ -615,6 +664,7 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
                 break;
             case SYSTEM_WIZARD_INFO:
                 WizardInfo config = pkt.getWizardInfo();
+				current_regulation_type = config.regulationType;
                 updateProperty("sys_info_sensor_type", numToString(SensorTypes, config.sensorType));
                 updateProperty("sys_info_regulation_type", numToString(RegulationTypes, config.regulationType));
                 updateProperty("sys_info_floor_type", numToString(FloorTypes, config.flooringType));
@@ -684,5 +734,8 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
     public void reportStatus(@NonNull ThingStatus status, @NonNull ThingStatusDetail statusDetail,
             @Nullable String description) {
         updateStatus(status, statusDetail, description);
+		
+		updateState(CHANNEL_DEVICE_CONNECTED, OnOffType.from(status==ThingStatus.ONLINE));
+		updateState(CHANNEL_DEVICE_CONNECTED_STATUS, new StringType(String.format("%s;%s;%s", status.toString(), statusDetail.toString(), description)) );
     }
 }

@@ -37,6 +37,8 @@ public class DanfossBindingConstants {
     public static final String CHANNEL_SETPOINT_MAX_FLOOR = "setpoint_max_floor";
     public static final String CHANNEL_SETPOINT_WARNING = "setpoint_warning";
 
+    public static final String[] TEMP_SETPOINTS = { CHANNEL_SETPOINT_COMFORT, CHANNEL_SETPOINT_ECONOMY, CHANNEL_SETPOINT_MANUAL,
+            CHANNEL_SETPOINT_TEMPORARY, CHANNEL_SETPOINT_AWAY, CHANNEL_SETPOINT_ANTIFREEZE };
 
     // Select
     public static final String CHANNEL_CONTROL_MODE = "select_control_mode";
@@ -62,10 +64,12 @@ public class DanfossBindingConstants {
     public static final String CHANNEL_ON_TIME_30_DAYS_KWH = "on_time_30_days_kwh";
     public static final String CHANNEL_ON_TIME_TOTAL_KWH = "on_time_total_kwh";
     public static final String CHANNEL_WEEK_SCHEDULE = "sensor_week_schedule";
-
+    public static final String CHANNEL_DEVICE_CONNECTED_STATUS  = "sensor_device_connected";
+	
     // Binary sensors
     public static final String CHANNEL_HEATING_STATE = "binary_sensor_heating_state";
     public static final String CHANNEL_MDG_CONNECTED_TO_CLOUD = "binary_sensor_cloud_connected";
+	public static final String CHANNEL_DEVICE_CONNECTED = "binary_sensor_device_connected";
     public static final String CHANNEL_WINDOW_OPEN = "binary_sensor_window_open";
 
     public static final String CHANNEL_BREAKOUT = "binary_sensor_warning_breakout";
@@ -76,9 +80,12 @@ public class DanfossBindingConstants {
 
 
     // Virtual / computed states
-    public static final String CHANNEL_ACTIVE_SETPOINT = "sensor_active_setpoint";
+    public static final String CHANNEL_ACTIVE_SETPOINT   = "sensor_active_setpoint";
     public static final String CHANNEL_THERMOSTAT_PRESET = "thermostat_preset";
-
+    public static final String CHANNEL_TARGET_TEMP       = "temperature_target";
+    public static final String CHANNEL_SET_TARGET_TEMP   = "set_temperature_target";
+    public static final String CHANNEL_CURRENT_TEMP      = "temperature_current";  // floor or room
+	
     // Icon specific
     public static final String CHANNEL_MANUAL_MODE = "manual_mode";
     public static final String CHANNEL_BATTERY = "battery";

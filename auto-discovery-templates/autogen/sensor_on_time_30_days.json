@@ -10,8 +10,11 @@
             "name": "DeviReg ${deviceSN}",
             "model": "DeviReg Smart Thermostat"
         },
-        "unique_id": "${deviceSN}_on_time_30_days",
-        "object_id": "devi_on_time_30_days_${deviceNumber}",
-        "name": "On time 30 days"
+        "unique_id": "id_${deviceSN}_on_time_30_days",
+        "object_id": "devireg_${deviceSN}_on_time_30_days",
+        "name": "On time 30 days",
+        "unit_of_measurement": "s",
+        "device_class": "duration",
+        "state_class": "measurement"
     }
 }

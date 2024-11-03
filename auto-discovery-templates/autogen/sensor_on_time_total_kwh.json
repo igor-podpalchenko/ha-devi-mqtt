@@ -10,8 +10,11 @@
             "name": "DeviReg ${deviceSN}",
             "model": "DeviReg Smart Thermostat"
         },
-        "unique_id": "${deviceSN}_on_time_total_kwh",
-        "object_id": "devi_on_time_total_kwh_${deviceNumber}",
-        "name": "On time total kwh"
+        "unique_id": "id_${deviceSN}_on_time_total_kwh",
+        "object_id": "devireg_${deviceSN}_on_time_total_kwh",
+        "name": "On time total kwh",
+        "unit_of_measurement": "kWh",
+        "device_class": "energy",
+        "state_class": "total_increasing"
     }
 }

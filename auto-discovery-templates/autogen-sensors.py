@@ -26,6 +26,18 @@ topics = [
     "on_time_total_kwh"
 ]
 
+
+topics_units = {
+    "sys_wifi_strength": "dBm",
+    "on_time_30_days": "s",
+    "on_time_7_days": "s",
+    "on_time_total": "s",
+    "on_time_30_days_kwh":"kWh",
+    "on_time_7_days_kwh":"kWh",
+    "on_time_total_kwh": "kWh"
+}
+
+
 template = {
     "topic": "",
     "template": {
@@ -49,12 +61,29 @@ os.makedirs(output_dir, exist_ok=True)
 
 for topic in topics:
     config = template.copy()
+    # need this to reset template!
+    config["template"] = template["template"].copy()
+    
     config["topic"] = f"homeassistant/sensor/{deviceSN}_{topic}/config"
     config["template"]["state_topic"] = f"devi/state/{deviceSN}/{topic}"
-    config["template"]["unique_id"] = f"{deviceSN}_{topic}"
-    config["template"]["object_id"] = f"devi_{topic}_{deviceNumber}"
+    config["template"]["unique_id"] = f"id_{deviceSN}_{topic}"
+    config["template"]["object_id"] = f"devireg_{deviceSN}_{topic}"
     config["template"]["name"] = topic.replace("_", " ").capitalize()
     
+    if topic in topics_units:
+        uofm = topics_units[topic]
+
+        config["template"]["unit_of_measurement"] = uofm
+        if uofm=='kwh':
+            config["template"]["device_class"] = 'energy'
+            config["template"]["state_class"]  = 'total_increasing'
+        elif uofm=='dBm':
+            config["template"]["device_class"] = 'signal_strength'
+            config["template"]["state_class"]  = 'measurement'				
+        elif uofm=='s':
+            config["template"]["device_class"] = 'duration'
+            config["template"]["state_class"]  = 'measurement'	
+			
     output_file = f"{output_dir}/sensor_{topic}.json"
     with open(output_file, "w") as file:
         json.dump(config, file, indent=4)

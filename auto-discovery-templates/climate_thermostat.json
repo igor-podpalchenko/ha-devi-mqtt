@@ -3,13 +3,17 @@
   "template": {
     "name": "DeviReg Smart Thermostat",
     "device_class": "climate",
-    "unique_id": "${deviceSN}_devi_thermostat",
-    "object_id": "devi_thermostat_${deviceNumber}",
+    "unique_id": "id_${deviceSN}_devi_thermostat",
+    "object_id": "devireg_${deviceSN}_thermostat",
 
-    "current_temperature_topic": "devi/state/${deviceSN}/temperature_floor",
+	"availability_topic": "devi/state/${deviceSN}/binary_sensor_device_connected",
+	"payload_available": "ON",
+	"payload_not_available": "OFF",
+	
+    "current_temperature_topic": "devi/state/${deviceSN}/temperature_current",
 
-    "temperature_state_topic": "devi/state/${deviceSN}/setpoint_temporary",
-    "temperature_command_topic": "devi/command/${deviceSN}/setpoint_temporary",
+    "temperature_state_topic": "devi/state/${deviceSN}/temperature_target",
+    "temperature_command_topic": "devi/command/${deviceSN}/set_temperature_target",
 
     "preset_mode_state_topic": "devi/state/${deviceSN}/select_control_mode",
     "preset_mode_command_topic": "devi/command/${deviceSN}/thermostat_preset",
@@ -26,7 +30,7 @@
 
     "mode_state_template": "{% set values = { 'off':'off', 'on':'heat'} %}\n  {{ values[value.lower()] if value.lower() in values.keys() else 'off' }}",
 
-    "icon": "hass:thermometer-bluetooth",
+    "icon": "mdi:heating-coil",
     "device": {
       "identifiers": [
         "${deviceSN}"

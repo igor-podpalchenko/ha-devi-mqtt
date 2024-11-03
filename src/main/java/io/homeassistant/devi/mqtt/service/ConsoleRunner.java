@@ -217,7 +217,10 @@ public class ConsoleRunner {
         commandMediator.addDeviRegHandler(deviceSN, deviRegHandler);
 
         MockThingCallback reportingCallback = new MockThingCallback((key, value) -> {
-            mqttService.SendSensorData(deviceSN, key, value);
+			// Fix HomeAssistant restart bug
+			// Retain basic climate channels
+			boolean setRetain = key.equals(CHANNEL_DEVICE_CONNECTED) || key.equals(CHANNEL_TARGET_TEMP) || key.equals(CHANNEL_CONTROL_MODE) || key.equals(CHANNEL_HEATING_STATE);
+            mqttService.SendSensorData(deviceSN, key, value, setRetain);
         });
 
         deviRegHandler.setCallback(reportingCallback);

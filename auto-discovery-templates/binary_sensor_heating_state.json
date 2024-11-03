@@ -10,8 +10,8 @@
             "name": "DeviReg ${deviceSN}",
             "model": "DeviReg Smart Thermostat"
         },
-        "unique_id": "${deviceSN}_binary_sensor_heating_state",
-        "object_id": "devi_binary_sensor_heating_state_${deviceNumber}",
+        "unique_id": "id_${deviceSN}_binary_sensor_heating_state",
+        "object_id": "devireg_${deviceSN}_binary_sensor_heating_state",
         "name": "Sensor heating state",
         "device_class": "heat"
     }

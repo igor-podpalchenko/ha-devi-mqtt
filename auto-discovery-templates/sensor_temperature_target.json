@@ -1,7 +1,7 @@
 {
-  "topic": "homeassistant/sensor/${deviceSN}_temperature_room/config",
+  "topic": "homeassistant/sensor/${deviceSN}_temperature_target/config",
   "template": {
-    "state_topic": "devi/state/${deviceSN}/temperature_room",
+    "state_topic": "devi/state/${deviceSN}/temperature_target",
     "device": {
       "identifiers": [
         "${deviceSN}"
@@ -10,9 +10,9 @@
       "name": "DeviReg ${deviceSN}",
       "model": "DeviReg Smart Thermostat"
     },
-    "unique_id": "id_${deviceSN}_temperature_room",
-    "object_id": "devireg_${deviceSN}_temperature_room",
-    "name": "# T Room",
+    "unique_id": "id_${deviceSN}_temperature_target",
+    "object_id": "devireg_${deviceSN}_temperature_target",
+    "name": "* T Target",
     "unit_of_measurement": "C",
     "device_class": "temperature",
     "state_class": "measurement",

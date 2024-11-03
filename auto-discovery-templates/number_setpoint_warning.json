@@ -11,8 +11,8 @@
       "name": "DeviReg ${deviceSN}",
       "model": "DeviReg Smart Thermostat"
     },
-    "unique_id": "${deviceSN}_setpoint_warning",
-    "object_id": "devi_setpoint_warning_${deviceNumber}",
+    "unique_id": "id_${deviceSN}_setpoint_warning",
+    "object_id": "devireg_${deviceSN}_setpoint_warning",
     "name": "T Warning",
     "device_class": "temperature",
     "state_class": "measurement",

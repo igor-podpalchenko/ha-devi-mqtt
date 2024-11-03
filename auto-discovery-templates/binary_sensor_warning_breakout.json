@@ -10,8 +10,8 @@
             "name": "DeviReg ${deviceSN}",
             "model": "DeviReg Smart Thermostat"
         },
-        "unique_id": "${deviceSN}_binary_sensor_warning_breakout",
-        "object_id": "devi_binary_sensor_warning_breakout_${deviceNumber}",
+        "unique_id": "id_${deviceSN}_binary_sensor_warning_breakout",
+        "object_id": "devireg_${deviceSN}_binary_sensor_warning_breakout",
         "name": "Warning Breakout",
         "device_class": "problem"
     }

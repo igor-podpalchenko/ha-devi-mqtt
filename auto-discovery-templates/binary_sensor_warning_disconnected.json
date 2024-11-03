@@ -10,8 +10,8 @@
             "name": "DeviReg ${deviceSN}",
             "model": "DeviReg Smart Thermostat"
         },
-        "unique_id": "${deviceSN}_binary_sensor_warning_disconnected",
-        "object_id": "devi_binary_sensor_warning_disconnected_${deviceNumber}",
+        "unique_id": "id_${deviceSN}_binary_sensor_warning_disconnected",
+        "object_id": "devireg_${deviceSN}_binary_sensor_warning_disconnected",
         "name": "Warning disconnected",
         "device_class": "problem"
     }

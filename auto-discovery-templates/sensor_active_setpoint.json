@@ -1,0 +1,18 @@
+{
+  "topic": "homeassistant/sensor/${deviceSN}_sensor_active_setpoint/config",
+  "template": {
+    "state_topic": "devi/state/${deviceSN}/sensor_active_setpoint",
+    "device": {
+      "identifiers": [
+        "${deviceSN}"
+      ],
+      "manufacturer": "Danfoss",
+      "name": "DeviReg ${deviceSN}",
+      "model": "DeviReg Smart Thermostat"
+    },
+    "unique_id": "id_${deviceSN}_active_setpoint",
+    "object_id": "devireg_${deviceSN}_active_setpoint",
+    "name": "* Active setpoint",
+    "force_update": true
+  }
+}

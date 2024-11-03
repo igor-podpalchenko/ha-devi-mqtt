@@ -10,8 +10,8 @@
             "name": "DeviReg ${deviceSN}",
             "model": "DeviReg Smart Thermostat"
         },
-        "unique_id": "${deviceSN}_sys_wifi_connect_ssid",
-        "object_id": "devi_sys_wifi_connect_ssid_${deviceNumber}",
+        "unique_id": "id_${deviceSN}_sys_wifi_connect_ssid",
+        "object_id": "devireg_${deviceSN}_sys_wifi_connect_ssid",
         "name": "Sys wifi connect ssid"
     }
 }

@@ -10,8 +10,8 @@
             "name": "DeviReg ${deviceSN}",
             "model": "DeviReg Smart Thermostat"
         },
-        "unique_id": "${deviceSN}_sys_info_regulation_type",
-        "object_id": "devi_sys_info_regulation_type_${deviceNumber}",
+        "unique_id": "id_${deviceSN}_sys_info_regulation_type",
+        "object_id": "devireg_${deviceSN}_sys_info_regulation_type",
         "name": "Sys info regulation type"
     }
 }

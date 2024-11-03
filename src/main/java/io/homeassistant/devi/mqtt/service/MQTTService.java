@@ -76,14 +76,15 @@ public class MQTTService {
         }
     }
 
-    public void SendSensorData(String sensorId, String sensorName, String sensorValue) {
+    public void SendSensorData(String sensorId, String sensorName, String sensorValue, boolean setRetain) {
 
         if (client.isConnected()) {
             try {
                 String topic = String.format(statePublishPrefix, sensorId) + sensorName;
                 MqttMessage message = new MqttMessage(sensorValue.getBytes());
                 message.setQos(1);
-                //message.setRetained();
+				if (setRetain)
+					message.setRetained(true);
 
                 // Publish message
                 client.publish(topic, message);
