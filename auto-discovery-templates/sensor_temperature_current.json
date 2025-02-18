@@ -13,7 +13,7 @@
     "unique_id": "id_${deviceSN}_temperature_current",
     "object_id": "devireg_${deviceSN}_temperature_current",
     "name": "* T Climate (Room or Floor)",
-    "unit_of_measurement": "C",
+    "unit_of_measurement": "°C",
     "device_class": "temperature",
     "state_class": "measurement",
     "force_update": true
