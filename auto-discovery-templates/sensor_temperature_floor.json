@@ -13,7 +13,7 @@
     "unique_id": "id_${deviceSN}_temperature_floor",
     "object_id": "devireg_${deviceSN}_temperature_floor",
     "name": "# T Floor",
-    "unit_of_measurement": "C",
+    "unit_of_measurement": "°C",
     "device_class": "temperature",
     "state_class": "measurement",
     "force_update": true
