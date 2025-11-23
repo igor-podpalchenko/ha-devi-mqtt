@@ -11,7 +11,7 @@
       "model": "DeviReg Smart Thermostat"
     },
     "unique_id": "id_${deviceSN}_sys_relay_on_count",
-    "object_id": "devireg_${deviceSN}_sys_relay_on_count",
+    "default_entity_id": "devireg_${deviceSN}_sys_relay_on_count",
 	"state_class": "total_increasing",
     "name": "Relay ON counter"
   }

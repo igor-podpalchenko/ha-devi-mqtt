@@ -11,7 +11,7 @@
       "model": "DeviReg Smart Thermostat"
     },
     "unique_id": "id_${deviceSN}_temperature_floor",
-    "object_id": "devireg_${deviceSN}_temperature_floor",
+    "default_entity_id": "devireg_${deviceSN}_temperature_floor",
     "name": "# T Floor",
     "unit_of_measurement": "°C",
     "device_class": "temperature",

@@ -11,7 +11,7 @@
             "model": "DeviReg Smart Thermostat"
         },
         "unique_id": "id_${deviceSN}_sys_serial_number",
-        "object_id": "devireg_${deviceSN}_sys_serial_number",
+        "default_entity_id": "devireg_${deviceSN}_sys_serial_number",
         "name": "Sys serial number"
     }
 }

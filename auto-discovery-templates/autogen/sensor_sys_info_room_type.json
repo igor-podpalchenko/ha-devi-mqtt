@@ -11,7 +11,7 @@
             "model": "DeviReg Smart Thermostat"
         },
         "unique_id": "id_${deviceSN}_sys_info_room_type",
-        "object_id": "devireg_${deviceSN}_sys_info_room_type",
+        "default_entity_id": "devireg_${deviceSN}_sys_info_room_type",
         "name": "Sys info room type"
     }
 }
