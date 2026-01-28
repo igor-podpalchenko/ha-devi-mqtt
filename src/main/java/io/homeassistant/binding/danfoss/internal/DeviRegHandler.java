@@ -397,7 +397,9 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
         updateState(ch, new DecimalType(roundedTemp));
 
 		// room = 0
-		if (current_regulation_type==0) {
+		// floor = 1
+		// room + floor = 2
+		if (current_regulation_type==0 || current_regulation_type==2) {
 			if (ch.equals(CHANNEL_TEMPERATURE_ROOM))
 				updateState(CHANNEL_CURRENT_TEMP, new DecimalType(roundedTemp));
 		} else {

@@ -11,7 +11,7 @@
             "model": "DeviReg Smart Thermostat"
         },
         "unique_id": "id_${deviceSN}_binary_sensor_cloud_connected",
-        "object_id": "devireg_${deviceSN}_binary_sensor_cloud_connected",
+        "default_entity_id": "devireg_${deviceSN}_binary_sensor_cloud_connected",
         "name": "Sensor cloud connected",
         "device_class": "connectivity"
     }

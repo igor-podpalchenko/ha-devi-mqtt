@@ -28,15 +28,27 @@ public class DeviSmartConnection extends PeerConnection {
     @Override
     protected void onDataReceived(InputStream stream) {
         int offset = 0;
-        int length;
         byte[] data;
 
         try {
-            length = stream.available();
-            data = new byte[length];
-            stream.read(data);
+            // Read the full payload; InputStream.available() is not a reliable size for network data.
+            java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
+            byte[] buffer = new byte[2048];
+            int read;
+            while ((read = stream.read(buffer)) > 0) {
+                out.write(buffer, 0, read);
+                if (stream.available() == 0) {
+                    break;
+                }
+            }
+            data = out.toByteArray();
         } catch (IOException e) {
             logger.warn("Failed to read input data: {}", e.toString());
+            return;
+        }
+
+        int length = data.length;
+        if (length == 0) {
             return;
         }
 

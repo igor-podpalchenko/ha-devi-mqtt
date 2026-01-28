@@ -12,7 +12,7 @@
       "model": "DeviReg Smart Thermostat"
     },
     "unique_id": "id_${deviceSN}_switch_min_floor_enable",
-    "object_id": "devireg_${deviceSN}_switch_min_floor_enable",
+    "default_entity_id": "devireg_${deviceSN}_switch_min_floor_enable",
     "name": "Switch Min Floor Enabled",
     "icon":"mdi:thermometer-chevron-down",
     "device_class": "switch"

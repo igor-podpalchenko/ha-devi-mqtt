@@ -12,7 +12,7 @@
       "model": "DeviReg Smart Thermostat"
     },
     "unique_id": "id_${deviceSN}_switch_forecast",
-    "object_id": "devireg_${deviceSN}_switch_forecast",
+    "default_entity_id": "devireg_${deviceSN}_switch_forecast",
     "name": "Switch Forecast",
     "icon": "mdi:timelapse",
     "device_class": "switch"

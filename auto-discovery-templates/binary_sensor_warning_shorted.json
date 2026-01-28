@@ -11,7 +11,7 @@
             "model": "DeviReg Smart Thermostat"
         },
         "unique_id": "id_${deviceSN}_binary_sensor_warning_shorted",
-        "object_id": "devireg_${deviceSN}_binary_sensor_warning_shorted",
+        "default_entity_id": "devireg_${deviceSN}_binary_sensor_warning_shorted",
         "name": "Warning shorted",
         "device_class": "problem"
     }

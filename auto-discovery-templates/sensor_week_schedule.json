@@ -11,7 +11,7 @@
       "model": "DeviReg Smart Thermostat"
     },
     "unique_id": "id_${deviceSN}_sensor_week_schedule",
-    "object_id": "devireg_${deviceSN}_sensor_week_schedule",
+    "default_entity_id": "devireg_${deviceSN}_sensor_week_schedule",
     "name": "Week schedule JSON",
     "entity_category": "diagnostic"
   }

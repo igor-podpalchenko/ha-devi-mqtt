@@ -11,7 +11,7 @@
             "model": "DeviReg Smart Thermostat"
         },
         "unique_id": "id_${deviceSN}_binary_sensor_warning_overheat",
-        "object_id": "devireg_${deviceSN}_binary_sensor_warning_overheat",
+        "default_entity_id": "devireg_${deviceSN}_binary_sensor_warning_overheat",
         "name": "Warning overheat",
         "device_class": "problem"
     }

@@ -24,6 +24,11 @@ public class ScheduleManager {
             throw new IllegalArgumentException("Invalid array length");
         }
 
+        // If this is the first part in a new cycle, clear any previous state.
+        if (partsReceivedMask == 0) {
+            clearWeeklySchedule();
+        }
+
         if (array.length == FIRST_PART_LENGTH * DAYS_IN_WEEK) {
             for (int day = 0; day < DAYS_IN_WEEK; day++) {
                 // Copy first part
@@ -41,7 +46,11 @@ public class ScheduleManager {
         }
 
         // Check if both parts have been received
-        return partsReceivedMask == 3;
+        boolean complete = partsReceivedMask == 3;
+        if (complete) {
+            partsReceivedMask = 0;
+        }
+        return complete;
     }
 
     public byte[] getWeeklySchedule() {
@@ -77,6 +86,7 @@ public class ScheduleManager {
             Gson gson = new Gson();
             Map<String, ArrayList<String>> scheduleMap = gson.fromJson(jsonString, Map.class);
 
+            clearWeeklySchedule();
             for (int day = 0; day < DAYS_IN_WEEK; day++) {
                 ArrayList<String> timePeriods = scheduleMap.get(DAY_NAMES[day]);
 
@@ -116,7 +126,7 @@ public class ScheduleManager {
 
 
             return true;
-        } catch (JsonSyntaxException | NullPointerException e) {
+        } catch (JsonSyntaxException | NullPointerException | IllegalArgumentException e) {
             e.printStackTrace();
             return false;
         }
@@ -166,10 +176,16 @@ public class ScheduleManager {
         return parts;
     }
 
+    private void clearWeeklySchedule() {
+        for (int i = 0; i < weeklySchedule.length; i++) {
+            weeklySchedule[i] = 0;
+        }
+    }
+
     private static String bytesToHex(byte[] bytes, int start, int end) {
         StringBuilder sb = new StringBuilder();
         for (int i = start; i < end; i++) {
-            sb.append(String.format("%02x", bytes[i]));
+            sb.append(String.format("%02x", bytes[i] & 0xFF));
         }
         return sb.toString();
     }
@@ -253,7 +269,8 @@ public class ScheduleManager {
                 for (int j = i + 1; j < bitMasks.length; j++) {
                     // Check for overlaps
                     if ((bitMasks[i] & bitMasks[j]) != 0) {
-                        return false;
+                        throw new IllegalArgumentException(
+                                "Overlapping time ranges: " + timeRanges.get(i) + " and " + timeRanges.get(j));
                     }
                 }
             }
@@ -267,6 +284,9 @@ public class ScheduleManager {
 
         int startBit = timeToBitIndex(splitRange[0]);
         int endBit = timeToBitIndex(splitRange[1]);
+        if (startBit < 0 || endBit < 0 || endBit > 48 || startBit >= endBit) {
+            throw new IllegalArgumentException("Invalid time range: " + decodedRange);
+        }
 
         // Create a bitmask with bits set from startBit to endBit - 1
         long bitmask = 0;
@@ -282,6 +302,15 @@ public class ScheduleManager {
         int minutes = Integer.parseInt(parts[1]);
 
         // Each hour is represented by 2 bits (30-minute intervals)
+        if (minutes != 0 && minutes != 30) {
+            throw new IllegalArgumentException("Invalid minutes in time: " + time);
+        }
+        if (hours == 24 && minutes == 0) {
+            return 48;  // (30 min slots across 24 hours)
+        }
+        if (hours < 0 || hours >= 24) {
+            throw new IllegalArgumentException("Invalid hours in time: " + time);
+        }
         return hours * 2 + (minutes == 30 ? 1 : 0);
     }
 

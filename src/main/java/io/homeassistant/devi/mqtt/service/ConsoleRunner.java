@@ -88,10 +88,10 @@ public class ConsoleRunner {
 
         // Read MQTT configuration
         JsonObject mqttConfig = gson.fromJson(new JsonReader(new FileReader(mqttConfigFile)), JsonObject.class);
-        String mqttHost = mqttConfig.get("host").getAsString();
-        String mqttPort = mqttConfig.get("port").getAsString();
-        String mqttUser = mqttConfig.get("user").getAsString();
-        String mqttPassword = mqttConfig.get("password").getAsString();
+        String mqttHost = getRequiredString(mqttConfig, "host", mqttConfigPath);
+        String mqttPort = getRequiredString(mqttConfig, "port", mqttConfigPath);
+        String mqttUser = getRequiredString(mqttConfig, "user", mqttConfigPath);
+        String mqttPassword = getRequiredString(mqttConfig, "password", mqttConfigPath);
 
         mqttService = new MQTTService(mqttHost, mqttPort, mqttUser, mqttPassword);
         mqttService.start();
@@ -101,8 +101,8 @@ public class ConsoleRunner {
 
         // Read Devi configuration
         JsonObject deviConfig = gson.fromJson(new JsonReader(new FileReader(deviConfigFile)), JsonObject.class);
-        String userName = deviConfig.get("userName").getAsString();
-        String privateKey = deviConfig.get("privateKey").getAsString();
+        String userName = getRequiredString(deviConfig, "userName", deviConfigPath);
+        String privateKey = getRequiredString(deviConfig, "privateKey", deviConfigPath);
 
         int deviceNumber = 0;
 
@@ -118,6 +118,13 @@ public class ConsoleRunner {
 
             HandleThermostat(devicePeerID, userName, privateKey, deviceSN);
         }
+    }
+
+    private static String getRequiredString(JsonObject obj, String key, String filePath) {
+        if (obj == null || !obj.has(key) || obj.get(key).isJsonNull()) {
+            throw new IllegalArgumentException("Missing required field '" + key + "' in " + filePath);
+        }
+        return obj.get(key).getAsString();
     }
 
     private static Map<String, String> parseParameters(String[] args) {

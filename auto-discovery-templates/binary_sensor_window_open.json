@@ -11,7 +11,7 @@
             "model": "DeviReg Smart Thermostat"
         },
         "unique_id": "id_${deviceSN}_binary_sensor_window_open",
-        "object_id": "devireg_${deviceSN}_binary_sensor_window_open",
+        "default_entity_id": "devireg_${deviceSN}_binary_sensor_window_open",
         "name": "Sensor window open",
         "device_class": "window"
     }

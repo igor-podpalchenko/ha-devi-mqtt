@@ -12,7 +12,7 @@
       "model": "DeviReg Smart Thermostat"
     },
     "unique_id": "id_${deviceSN}_setpoint_max_floor",
-    "object_id": "devireg_${deviceSN}_setpoint_max_floor",
+    "default_entity_id": "devireg_${deviceSN}_setpoint_max_floor",
     "name": "T Max Floor",
     "device_class": "temperature",
     "state_class": "measurement",

@@ -26,6 +26,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
+import java.util.concurrent.TimeUnit;
 
 public class DiscoveryService {
 
@@ -243,7 +244,7 @@ public class DiscoveryService {
         // Iterate over the list of devices, connect and extract SN
         for (Map<String, String> room : roomsList) {
             for (Map.Entry<String, String> entry : room.entrySet()) {
-                if(entry.getKey() != "devicePeerID")
+                if (!"devicePeerID".equals(entry.getKey()))
                     continue;
 
                 if(configMap.containsKey("peerId"))
@@ -263,7 +264,7 @@ public class DiscoveryService {
 
                     System.out.println("Parsing thermostat data - key: " + key + ", value: " + value);
 
-                    if(!room.containsKey("sys_serial_number") && key == "sys_serial_number") {
+                    if (!room.containsKey("serialNumber") && "sys_serial_number".equals(key)) {
                         room.put("serialNumber", value);
                         deviRegHandler.dispose();
 
@@ -284,12 +285,17 @@ public class DiscoveryService {
 
         System.out.println("Awaiting query completion");
 
-        // Wait for all async tasks to complete
+        // Wait for all async tasks to complete (with timeout)
         try {
-            latch.await();
-            CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).get();
+            boolean completed = latch.await(60, TimeUnit.SECONDS);
+            if (!completed) {
+                logger.warn("Timeout while waiting for thermostat serial numbers; proceeding with partial data");
+            }
+            CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).get(5, TimeUnit.SECONDS);
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
+        } catch (java.util.concurrent.TimeoutException e) {
+            logger.warn("Timeout while awaiting serial number futures; proceeding");
         }
 
 

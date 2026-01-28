@@ -51,7 +51,7 @@ template = {
             "model": "DeviReg Smart Thermostat"
         },
         "unique_id": "",
-        "object_id": "",
+        "default_entity_id": "",
         "name": ""
     }
 }
@@ -67,14 +67,14 @@ for topic in topics:
     config["topic"] = f"homeassistant/sensor/{deviceSN}_{topic}/config"
     config["template"]["state_topic"] = f"devi/state/{deviceSN}/{topic}"
     config["template"]["unique_id"] = f"id_{deviceSN}_{topic}"
-    config["template"]["object_id"] = f"devireg_{deviceSN}_{topic}"
+    config["template"]["default_entity_id"] = f"devireg_{deviceSN}_{topic}"
     config["template"]["name"] = topic.replace("_", " ").capitalize()
     
     if topic in topics_units:
         uofm = topics_units[topic]
 
         config["template"]["unit_of_measurement"] = uofm
-        if uofm=='kwh':
+        if uofm=='kWh':
             config["template"]["device_class"] = 'energy'
             config["template"]["state_class"]  = 'total_increasing'
         elif uofm=='dBm':
