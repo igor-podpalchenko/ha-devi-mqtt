@@ -68,7 +68,23 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
         super(thing);
     }
 
+    /** Session manager of this thermostat (configured by ConsoleRunner before initialize()). */
+    public SDGPeerConnector getConnector() {
+        return connHandler;
+    }
+
+    /**
+     * Entry point for commands received over MQTT. They are queued by the session
+     * manager and applied (see {@link #applyCommand}) once a session with the
+     * thermostat is established and its state is known — sending blindly used to
+     * lose every command addressed to a thermostat that was not connected.
+     */
     public void handleCommand(String sensorId, String payload) {
+        connHandler.submitCommand(sensorId, payload);
+    }
+
+    @Override
+    public void applyCommand(String sensorId, String payload) {
 
         ChannelUID ch = new ChannelUID(new ThingUID("cmd", "danfoss", "devismart"), sensorId);
 
@@ -641,7 +657,10 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
                 updateProperty("sys_production_date", DateFormat.getDateTimeInstance().format(pkt.getDate(0)));
                 break;
             case MDG_CONNECTION_COUNT:
-                updateProperty("sys_connection_count", String.valueOf(pkt.getByte()));
+                int clients = Byte.toUnsignedInt(pkt.getByte());
+                updateProperty("sys_connection_count", String.valueOf(clients));
+                // Pushed live by the thermostat: lets the bridge step aside for the app
+                connHandler.onConnectionCount(clients);
                 break;
             case WIFI_CONNECTED_STRENGTH:
                 updateProperty("sys_wifi_strength", String.valueOf(pkt.getShort()));
@@ -726,6 +745,13 @@ public class DeviRegHandler extends BaseThingHandler implements ISDGPeerHandler 
         // This method is called from within PeerConnectionHandler when
         // it notices that the communication seems to have stalled.
         connHandler.SendPacket(new Dominion.Packet(DOMINION_HEATING, HEATING_TEMPERATURE_FLOOR));
+        // Also refresh the client count, so a connected app is noticed
+        connHandler.SendPacket(SDGPeerConnector.connectionCountRequest(MDG_CONNECTION_COUNT));
+    }
+
+    @Override
+    public void reportLastContact(java.time.Instant when) {
+        updateState(CHANNEL_LAST_CONTACT, new StringType(when.toString()));
     }
 
     // Support method for SDGPeerConnector

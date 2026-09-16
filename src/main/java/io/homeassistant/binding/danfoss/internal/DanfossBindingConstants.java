@@ -70,6 +70,8 @@ public class DanfossBindingConstants {
     public static final String CHANNEL_HEATING_STATE = "binary_sensor_heating_state";
     public static final String CHANNEL_MDG_CONNECTED_TO_CLOUD = "binary_sensor_cloud_connected";
 	public static final String CHANNEL_DEVICE_CONNECTED = "binary_sensor_device_connected";
+    /** ISO-8601 time of the latest successful session (published by the bridge, not the thermostat) */
+    public static final String CHANNEL_LAST_CONTACT = "sensor_last_contact";
     public static final String CHANNEL_WINDOW_OPEN = "binary_sensor_window_open";
 
     public static final String CHANNEL_BREAKOUT = "binary_sensor_warning_breakout";

@@ -1,0 +1,20 @@
+{
+  "topic": "homeassistant/sensor/${deviceSN}_sensor_last_contact/config",
+  "template": {
+    "state_topic": "devi/state/${deviceSN}/sensor_last_contact",
+    "device": {
+      "identifiers": [
+        "${deviceSN}"
+      ],
+      "manufacturer": "Danfoss",
+      "name": "DeviReg ${deviceSN}",
+      "model": "DeviReg Smart Thermostat"
+    },
+    "unique_id": "id_${deviceSN}_sensor_last_contact",
+    "object_id": "devireg_${deviceSN}_last_contact",
+    "name": "* Last contact",
+    "device_class": "timestamp",
+    "entity_category": "diagnostic",
+    "icon": "mdi:clock-check-outline"
+  }
+}

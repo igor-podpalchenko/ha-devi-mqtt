@@ -53,6 +53,34 @@ java -cp target/ha-devi-mqtt.jar io.homeassistant.devi.mqtt.service.ConsoleRunne
 docker run -it --rm -v $(pwd)/devi_config.json:/app/config/devi_config.json -v $(pwd)/mqtt_config.json:/app/config/mqtt_config.json -v $(pwd)/auto-discovery-templates:/app/config/auto-discovery-templates  podpalch/ha-devi-mqtt
 ```
 
+## Sharing the thermostats with the Danfoss app
+
+A DEVIreg Smart accepts **two** clients at a time. The bridge therefore does not
+keep a session open: it polls (connect, read the state, apply queued commands,
+disconnect, ~3 s every 5 minutes) and leaves immediately when the thermostat
+reports that another client has connected — so the app stays usable while the
+bridge runs. Commands arriving over MQTT while a thermostat is offline, busy or
+between polls are queued and applied at the next session instead of being lost.
+
+Everything is tuned from the environment; the defaults suit a normal house and
+nothing has to be set:
+
+| Variable | Default | What it does |
+|---|---|---|
+| `DEVI_MODE` | `POLL` | `PERSISTENT` keeps the session open (still steps aside for the app) |
+| `DEVI_POLL_S` | `300` | Interval between two polls of one thermostat |
+| `DEVI_YIELD` | `1` | `0` disables stepping aside for the app |
+| `DEVI_YIELD_QUIET_S` | `900` | How long to stay away after the app was seen |
+| `DEVI_BUSY_BACKOFF_S` | `600` | First back-off when the thermostat is full (relay code 4); doubles |
+| `DEVI_OFFLINE_BACKOFF_S` | `300` | First back-off when it cannot be reached; doubles |
+| `DEVI_BACKOFF_MAX_S` | `1800` | Upper bound for every back-off |
+| `DEVI_STALE_S` | `3600` | Report a thermostat offline after this long without contact |
+| `DEVI_PARALLEL_CONNECTS` | `4` | Concurrent handshakes, all thermostats together |
+| `DEVI_LOG_LEVEL` | `INFO` | `DEBUG` logs every received value |
+
+`binary_sensor_device_connected` now means "heard from recently" rather than "a
+socket is open right now", so it no longer flips between polls, and the new
+`sensor_last_contact` carries the time of the last successful session.
 
 ## Configuration
 

@@ -6,8 +6,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.MalformedJsonException;
+import io.homeassistant.binding.danfoss.internal.BridgeSettings;
 import io.homeassistant.binding.danfoss.internal.DanfossBindingConfig;
 import io.homeassistant.binding.danfoss.internal.DeviRegHandler;
+import io.homeassistant.binding.danfoss.internal.ExecutorSessionScheduler;
+import io.homeassistant.binding.danfoss.internal.SDGPeerConnector;
 import org.apache.commons.text.StringSubstitutor;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -25,8 +28,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Executor;
 import java.util.stream.Stream;
 
 import static io.homeassistant.binding.danfoss.internal.DanfossBindingConstants.*;
@@ -52,6 +58,13 @@ public class ConsoleRunner {
     }
 
     private static MQTTService mqttService;
+
+    /** Session policy, read once from the environment (see BridgeSettings). */
+    private static BridgeSettings settings;
+    /** Bounded pool for the blocking connection handshakes of all thermostats. */
+    private static Executor connectPool;
+    /** Every thermostat session, watched by the BridgeWatchdog. */
+    private static final List<SDGPeerConnector> sessions = new ArrayList<>();
 
     private static void Run(String[] args) throws Exception {
         // Parse the command-line arguments
@@ -84,6 +97,10 @@ public class ConsoleRunner {
             return;
         }
 
+        settings = BridgeSettings.fromEnv();
+        connectPool = SDGPeerConnector.sharedConnectPool(settings.maxParallelConnects);
+        logger.info("Session policy: {}", settings);
+
         Gson gson = new Gson();
 
         // Read MQTT configuration
@@ -109,15 +126,24 @@ public class ConsoleRunner {
         for (JsonElement room : deviConfig.getAsJsonArray("rooms")) {
             String devicePeerID = room.getAsJsonObject().get("devicePeerID").getAsString();
             String deviceSN = room.getAsJsonObject().get("serialNumber").getAsString();
+            String roomName = room.getAsJsonObject().has("name")
+                    ? room.getAsJsonObject().get("name").getAsString()
+                    : deviceSN;
 
             Map<String, String> valuesMap = new HashMap<>();
             valuesMap.put("deviceSN", deviceSN);
-            valuesMap.put("deviceNumber", String.valueOf(deviceNumber++));
+            valuesMap.put("deviceNumber", String.valueOf(deviceNumber));
 
             readAndProcessTemplates(autoDiscoveryTemplatesPath, valuesMap);
 
-            HandleThermostat(devicePeerID, userName, privateKey, deviceSN);
+            HandleThermostat(devicePeerID, userName, privateKey, deviceSN, roomName, deviceNumber++);
         }
+
+        // Last line of defence: aborts overrunning attempts and, if the bridge is
+        // truly stuck, dumps the threads and exits so the container restarts.
+        Thread watchdog = new Thread(new BridgeWatchdog(sessions), "devi-watchdog");
+        watchdog.setDaemon(true);
+        watchdog.start();
     }
 
     private static String getRequiredString(JsonObject obj, String key, String filePath) {
@@ -205,7 +231,8 @@ public class ConsoleRunner {
         }
     }
 
-    private static void HandleThermostat(String devicePeerID, String userName, String privateKey, String deviceSN) {
+    private static void HandleThermostat(String devicePeerID, String userName, String privateKey, String deviceSN,
+            String roomName, int index) {
 
         // Creating a configuration map
         Map<String, Object> configMap = new HashMap<>();
@@ -232,13 +259,15 @@ public class ConsoleRunner {
 
         deviRegHandler.setCallback(reportingCallback);
 
-        deviRegHandler.initialize();
+        SDGPeerConnector session = deviRegHandler.getConnector();
+        session.configure(settings, new ExecutorSessionScheduler("devi-" + deviceSN), connectPool);
+        session.setLabel(roomName);
+        // Spread the first handshakes instead of sleeping between thermostats: the
+        // sessions are scheduled, so start-up no longer takes 5 s per thermostat.
+        session.setInitialDelayMs(index * settings.startupStaggerMs);
+        sessions.add(session);
 
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        deviRegHandler.initialize();
 
         /*
         ChannelUID comfort_temp_uid = new ChannelUID(new ThingUID("cmd", "danfoss","devismart"),  CHANNEL_SETPOINT_COMFORT);

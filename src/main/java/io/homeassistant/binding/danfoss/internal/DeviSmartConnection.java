@@ -1,38 +1,72 @@
 package io.homeassistant.binding.danfoss.internal;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import  jakarta.xml.bind.DatatypeConverter;
-
-import io.homeassistant.binding.danfoss.internal.protocol.Dominion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import io.github.sonic_amiga.opensdg.java.PeerConnection;
+import io.homeassistant.binding.danfoss.internal.protocol.Dominion;
 
-public class DeviSmartConnection extends PeerConnection {
+/**
+ * One encrypted session with one thermostat, over the Danfoss grid.
+ *
+ * It is the real {@link PeerLink}: a fresh instance is created for every session,
+ * so a callback of an old connection can never be taken for one of the current
+ * session. Splitting the received bytes into Dominion packets is done by
+ * {@link SDGPeerConnector}, which needs to see the whole buffer to know when a
+ * state dump is complete.
+ */
+public class DeviSmartConnection extends PeerConnection implements PeerLink {
     private final Logger logger = LoggerFactory.getLogger(DeviSmartConnection.class);
 
-    private SDGPeerConnector m_Handler;
+    private final byte[] peerId;
+    private volatile Listener listener;
 
-    DeviSmartConnection(SDGPeerConnector handler) {
-        m_Handler = handler;
+    public DeviSmartConnection(byte[] peerId) {
+        this.peerId = peerId;
+    }
+
+    @Override
+    public void connect() throws Exception {
+        connectToRemote(GridConnectionKeeper.getConnection(), peerId, Dominion.ProtocolName);
+    }
+
+    @Override
+    public void startReceiving(Listener l) {
+        listener = l;
+        asyncReceive();
+    }
+
+    @Override
+    public void send(byte[] data) throws Exception {
+        sendData(data);
+    }
+
+    @Override
+    public void close() {
+        listener = null;
+        super.close();
     }
 
     @Override
     protected void onError(Throwable t) {
-        m_Handler.setOfflineStatus(t);
+        Listener l = listener;
+        if (l != null) {
+            l.onClosed(t);
+        }
     }
 
     @Override
     protected void onDataReceived(InputStream stream) {
-        int offset = 0;
         byte[] data;
 
         try {
-            // Read the full payload; InputStream.available() is not a reliable size for network data.
-            java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
+            // Read the full payload; InputStream.available() is not a reliable size
+            // for network data.
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
             byte[] buffer = new byte[2048];
             int read;
             while ((read = stream.read(buffer)) > 0) {
@@ -47,32 +81,9 @@ public class DeviSmartConnection extends PeerConnection {
             return;
         }
 
-        int length = data.length;
-        if (length == 0) {
-            return;
-        }
-
-        /*
-         * For some reason the first data packet from the thermostat actually
-         * consists of many merged messages. It looks like nothing forbids this
-         * to be done at any moment. Also this suggests that garbage zero byte
-         * in the beginning of this bunch could be a buffering bug.
-         */
-        while (length >= Dominion.Packet.HeaderSize) {
-            Dominion.Packet pkt = new Dominion.Packet(data, offset);
-            int packetLen = pkt.getLength();
-
-            if (packetLen > length) {
-                // Packet header specifies more bytes than we have. The packet is clearly malformed.
-                logger.warn("Malformed data at position {}; size exceeds buffer", offset);
-                logger.warn(DatatypeConverter.printHexBinary(data));
-                break; // Drop the rest of data and continue
-            }
-
-            m_Handler.handlePacket(pkt);
-
-            offset += packetLen;
-            length -= packetLen;
+        Listener l = listener;
+        if (l != null && data.length > 0) {
+            l.onData(data);
         }
     }
 }
