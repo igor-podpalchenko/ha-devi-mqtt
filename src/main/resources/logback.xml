@@ -1,19 +1,16 @@
 <configuration>
+    <!-- One line per session event; nothing per published value (the old bridge
+         wrote 6 GB of log in 2.5 days). Levels can be overridden from the
+         container environment: DEVI_LOG_LEVEL, DEVI_LIB_LOG_LEVEL. -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{0} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <root level="info">
+    <logger name="io.github.sonic_amiga.opensdg" level="${DEVI_LIB_LOG_LEVEL:-WARN}"/>
+
+    <root level="${DEVI_LOG_LEVEL:-INFO}">
         <appender-ref ref="STDOUT" />
     </root>
-    <!--
-    <root level="debug">
-        <appender-ref ref="STDOUT" />
-    </root>
-    <root level="trace">
-        <appender-ref ref="STDOUT" />
-    </root>
-    -->
 </configuration>
